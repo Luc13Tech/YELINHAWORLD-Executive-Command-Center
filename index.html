@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,9 +37,9 @@
     min-height: 100vh;
     overflow-x: hidden;
     cursor: default;
-    position: relative;
   }
 
+  /* ANIMATED BACKGROUND */
   body::before {
     content: '';
     position: fixed;
@@ -51,6 +52,7 @@
     z-index: 0;
   }
 
+  /* GRID OVERLAY */
   body::after {
     content: '';
     position: fixed;
@@ -65,6 +67,7 @@
 
   .wrapper { position: relative; z-index: 1; }
 
+  /* ── TOP HEADER ── */
   header {
     display: flex;
     align-items: center;
@@ -76,8 +79,6 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    flex-wrap: wrap;
-    gap: 12px;
   }
 
   .logo-block { display: flex; align-items: center; gap: 16px; }
@@ -106,7 +107,6 @@
     letter-spacing: 4px;
     background: linear-gradient(90deg, var(--cyan), var(--blue2));
     -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
@@ -158,6 +158,7 @@
     font-size: 9px;
   }
 
+  /* ── HERO BANNER ── */
   .hero {
     padding: 40px 36px 28px;
     border-bottom: 1px solid var(--border2);
@@ -191,7 +192,6 @@
     line-height: 1.05;
     background: linear-gradient(135deg, #fff 30%, var(--cyan));
     -webkit-background-clip: text;
-    background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
@@ -254,6 +254,7 @@
     font-family: 'JetBrains Mono', monospace;
   }
 
+  /* ── TABS NAV ── */
   .tabs-nav {
     display: flex;
     gap: 0;
@@ -281,18 +282,21 @@
   .tab-btn:hover { color: var(--blue2); }
   .tab-btn.active { color: var(--cyan); border-bottom-color: var(--cyan); }
 
+  /* ── CONTENT ── */
   .content { padding: 32px 36px; }
   .tab-panel { display: none; }
   .tab-panel.active { display: block; animation: fadein 0.3s ease; }
 
   @keyframes fadein { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
 
+  /* ── GRID LAYOUTS ── */
   .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
   .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
   .grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
   .grid-1-2 { display: grid; grid-template-columns: 1fr 2fr; gap: 16px; }
 
+  /* ── CARD ── */
   .card {
     background: var(--card);
     border: 1px solid var(--border);
@@ -312,6 +316,7 @@
   }
 
   .card:hover { border-color: rgba(56,120,255,0.35); box-shadow: var(--glow2); }
+
   .card.accent::before { background: linear-gradient(90deg, var(--cyan), transparent); }
   .card.gold::before { background: linear-gradient(90deg, var(--gold), transparent); }
   .card.green::before { background: linear-gradient(90deg, var(--green), transparent); }
@@ -348,6 +353,7 @@
 
   .card p { font-size: 12px; color: var(--text2); line-height: 1.6; }
 
+  /* ── SECTION TITLE ── */
   .section-title {
     font-family: 'Orbitron', sans-serif;
     font-size: 11px;
@@ -373,6 +379,7 @@
   .mb32 { margin-bottom: 32px; }
   .mt24 { margin-top: 24px; }
 
+  /* ── EXEC CARDS ── */
   .exec-card {
     background: var(--card);
     border: 1px solid var(--border);
@@ -405,9 +412,11 @@
     font-weight: 700;
     color: white;
     flex-shrink: 0;
+    position: relative;
   }
 
   .exec-info { flex: 1; min-width: 0; }
+
   .exec-role {
     font-family: 'JetBrains Mono', monospace;
     font-size: 8px;
@@ -423,11 +432,13 @@
     font-weight: 600;
     color: var(--text);
     margin-bottom: 5px;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   .exec-focus { font-size: 10px; color: var(--text2); line-height: 1.5; }
+
   .exec-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
 
   .tag {
@@ -452,7 +463,9 @@
     gap: 12px;
   }
 
+  /* ── TIMELINE ── */
   .timeline { position: relative; padding-left: 24px; }
+
   .timeline::before {
     content: '';
     position: absolute;
@@ -472,6 +485,7 @@
   }
 
   .timeline-item:hover { border-color: var(--border); }
+
   .timeline-item::before {
     content: '';
     position: absolute;
@@ -505,6 +519,7 @@
   }
 
   .tl-desc { font-size: 11px; color: var(--text2); line-height: 1.5; }
+
   .tl-badge {
     position: absolute;
     top: 12px; right: 12px;
@@ -516,63 +531,80 @@
     border-radius: 2px;
   }
 
+  /* ── PROGRESS BARS ── */
   .progress-item { margin-bottom: 14px; }
+
   .progress-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 6px;
   }
+
   .progress-label { font-size: 11px; color: var(--text2); }
+
   .progress-pct {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px;
     color: var(--blue2);
   }
+
   .progress-bar {
     height: 3px;
     background: rgba(56,120,255,0.1);
     border-radius: 2px;
     overflow: hidden;
   }
+
   .progress-fill {
     height: 100%;
     border-radius: 2px;
     background: linear-gradient(90deg, var(--blue), var(--cyan));
+    position: relative;
     transition: width 0.8s ease;
   }
+
   .progress-fill.gold { background: linear-gradient(90deg, var(--gold), #ffda7a); }
   .progress-fill.green { background: linear-gradient(90deg, var(--green), #80ffcc); }
   .progress-fill.orange { background: linear-gradient(90deg, var(--orange), #ffb97a); }
 
+  /* ── SPEC TABLE ── */
   .spec-table { width: 100%; border-collapse: collapse; }
+
   .spec-table tr { border-bottom: 1px solid var(--border2); }
   .spec-table tr:last-child { border-bottom: none; }
+
   .spec-table td {
     padding: 10px 6px;
     font-size: 11px;
     vertical-align: top;
   }
+
   .spec-table td:first-child {
     font-family: 'JetBrains Mono', monospace;
     font-size: 9px;
     color: var(--text3);
     letter-spacing: 1px;
+    white-space: nowrap;
     padding-right: 20px;
     width: 40%;
   }
+
   .spec-table td:last-child { color: var(--text); font-weight: 500; }
+
   .spec-value-highlight {
     color: var(--cyan) !important;
     font-family: 'JetBrains Mono', monospace !important;
     font-size: 12px !important;
   }
 
+  /* ── SUPPLIER TABLE ── */
   .supplier-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
   }
+
   .supplier-item {
     background: var(--card2);
     border: 1px solid var(--border2);
@@ -583,7 +615,9 @@
     gap: 10px;
     transition: border-color 0.2s;
   }
+
   .supplier-item:hover { border-color: var(--border); }
+
   .supplier-dot {
     width: 6px; height: 6px;
     border-radius: 50%;
@@ -591,12 +625,16 @@
     background: var(--blue);
     box-shadow: 0 0 6px var(--blue);
   }
+
   .supplier-dot.green { background: var(--green); box-shadow: 0 0 6px var(--green); }
   .supplier-dot.gold { background: var(--gold); box-shadow: 0 0 6px var(--gold); }
   .supplier-dot.orange { background: var(--orange); box-shadow: 0 0 6px var(--orange); }
+
   .supplier-name { font-size: 10px; color: var(--text2); line-height: 1.4; flex: 1; }
 
+  /* ── TOOL BADGES ── */
   .tool-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+
   .tool-card {
     background: var(--card2);
     border: 1px solid var(--border2);
@@ -605,8 +643,11 @@
     text-align: center;
     transition: all 0.2s;
   }
+
   .tool-card:hover { border-color: var(--border); transform: translateY(-2px); }
+
   .tool-icon { font-size: 22px; margin-bottom: 8px; }
+
   .tool-name {
     font-family: 'Orbitron', sans-serif;
     font-size: 9px;
@@ -615,8 +656,10 @@
     color: var(--text);
     margin-bottom: 4px;
   }
+
   .tool-use { font-size: 9px; color: var(--text3); line-height: 1.4; }
 
+  /* ── RISK MATRIX ── */
   .risk-item {
     display: flex;
     align-items: flex-start;
@@ -628,7 +671,9 @@
     margin-bottom: 8px;
     transition: border-color 0.2s;
   }
+
   .risk-item:hover { border-color: var(--border); }
+
   .risk-level {
     font-family: 'JetBrains Mono', monospace;
     font-size: 8px;
@@ -636,25 +681,33 @@
     text-transform: uppercase;
     padding: 3px 8px;
     border-radius: 2px;
+    white-space: nowrap;
     flex-shrink: 0;
     margin-top: 2px;
   }
+
   .risk-high { background: rgba(255,69,103,0.15); color: var(--red); border: 1px solid rgba(255,69,103,0.3); }
   .risk-med { background: rgba(240,180,41,0.12); color: var(--gold); border: 1px solid rgba(240,180,41,0.3); }
   .risk-low { background: rgba(0,229,160,0.08); color: var(--green); border: 1px solid rgba(0,229,160,0.25); }
+
   .risk-desc { flex: 1; }
   .risk-title { font-size: 11px; color: var(--text); margin-bottom: 3px; }
   .risk-mitigation { font-size: 10px; color: var(--text3); line-height: 1.5; }
 
+  /* ── BUDGET BARS ── */
   .budget-row {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 12px;
   }
+
   .budget-label { font-size: 10px; color: var(--text2); width: 160px; flex-shrink: 0; }
+
   .budget-bar-wrap { flex: 1; height: 4px; background: rgba(56,120,255,0.08); border-radius: 2px; overflow: hidden; }
+
   .budget-bar-fill { height: 100%; border-radius: 2px; }
+
   .budget-amount {
     font-family: 'JetBrains Mono', monospace;
     font-size: 9px;
@@ -664,12 +717,14 @@
     flex-shrink: 0;
   }
 
+  /* ── CERTIFICATION ── */
   .cert-step {
     display: flex;
     gap: 14px;
     margin-bottom: 16px;
     align-items: flex-start;
   }
+
   .cert-num {
     width: 28px; height: 28px;
     border-radius: 2px;
@@ -682,10 +737,18 @@
     flex-shrink: 0;
     background: rgba(56,120,255,0.06);
   }
+
   .cert-content { flex: 1; }
   .cert-title { font-size: 12px; color: var(--text); margin-bottom: 3px; }
   .cert-detail { font-size: 10px; color: var(--text3); line-height: 1.5; }
 
+  /* ── PRIORITY TAGS ── */
+  .priority-section { margin-bottom: 28px; }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: var(--border2); margin: 24px 0; }
+
+  /* ── ALERT STRIP ── */
   .alert-strip {
     background: rgba(240,180,41,0.06);
     border: 1px solid rgba(240,180,41,0.2);
@@ -696,14 +759,17 @@
     gap: 12px;
     margin-bottom: 20px;
   }
+
   .alert-icon { font-size: 16px; flex-shrink: 0; }
   .alert-text { font-size: 11px; color: var(--gold); line-height: 1.5; }
   .alert-text strong { font-weight: 600; }
 
+  /* ── METRIC WIDGET ── */
   .metric-big {
     text-align: center;
     padding: 16px 0;
   }
+
   .metric-big-value {
     font-family: 'Orbitron', sans-serif;
     font-size: 36px;
@@ -711,6 +777,7 @@
     line-height: 1;
     margin-bottom: 6px;
   }
+
   .metric-big-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 9px;
@@ -719,10 +786,12 @@
     text-transform: uppercase;
   }
 
+  /* ── RESPONSIVE ── */
   @media (max-width: 1024px) {
     .exec-grid, .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
     .tool-grid { grid-template-columns: repeat(2, 1fr); }
   }
+
   @media (max-width: 768px) {
     header { padding: 14px 16px; }
     .content { padding: 20px 16px; }
@@ -734,6 +803,7 @@
     .kpi-strip { gap: 16px; }
   }
 
+  /* Scrollbar */
   ::-webkit-scrollbar { width: 4px; height: 4px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: rgba(56,120,255,0.3); border-radius: 2px; }
@@ -742,6 +812,7 @@
 <body>
 <div class="wrapper">
 
+<!-- ══════════ HEADER ══════════ -->
 <header>
   <div class="logo-block">
     <div class="logo-icon">
@@ -763,6 +834,7 @@
   </div>
 </header>
 
+<!-- ══════════ HERO ══════════ -->
 <div class="hero">
   <div class="hero-plane">✈</div>
   <div class="hero-row">
@@ -772,15 +844,36 @@
       <div class="hero-desc">Long-range, technologically advanced widebody aircraft. Twinjet, fly-by-wire, powered by 2× Rolls-Royce Trent XWB engines. Targeting FAA 14 CFR Part 25 Type Certification.</div>
     </div>
     <div class="kpi-strip">
-      <div class="kpi"><div class="kpi-label">Seed Funding</div><div class="kpi-value gold">$100K</div><div class="kpi-note">SAFE · VC Pre-Seed</div></div>
-      <div class="kpi"><div class="kpi-label">First Flight</div><div class="kpi-value">2028</div><div class="kpi-note">Target Year</div></div>
-      <div class="kpi"><div class="kpi-label">First Delivery</div><div class="kpi-value green">2030</div><div class="kpi-note">Customer EIS</div></div>
-      <div class="kpi"><div class="kpi-label">Wingspan</div><div class="kpi-value orange">64.75m</div><div class="kpi-note">High-Aspect-Ratio</div></div>
-      <div class="kpi"><div class="kpi-label">Engines</div><div class="kpi-value" style="font-size:13px;padding-top:4px;">Trent XWB</div><div class="kpi-note">2× Rolls-Royce</div></div>
+      <div class="kpi">
+        <div class="kpi-label">Seed Funding</div>
+        <div class="kpi-value gold">$100K</div>
+        <div class="kpi-note">SAFE · VC Pre-Seed</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">First Flight</div>
+        <div class="kpi-value">2028</div>
+        <div class="kpi-note">Target Year</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">First Delivery</div>
+        <div class="kpi-value green">2030</div>
+        <div class="kpi-note">Customer EIS</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Wingspan</div>
+        <div class="kpi-value orange">64.75m</div>
+        <div class="kpi-note">High-Aspect-Ratio</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Engines</div>
+        <div class="kpi-value" style="font-size:13px;padding-top:4px;">Trent XWB</div>
+        <div class="kpi-note">2× Rolls-Royce</div>
+      </div>
     </div>
   </div>
 </div>
 
+<!-- ══════════ TABS ══════════ -->
 <div class="tabs-nav">
   <button class="tab-btn active" onclick="switchTab('overview')">Overview</button>
   <button class="tab-btn" onclick="switchTab('team')">C-Suite & Team</button>
@@ -790,63 +883,1768 @@
   <button class="tab-btn" onclick="switchTab('supplychain')">Supply Chain</button>
   <button class="tab-btn" onclick="switchTab('certification')">Certification</button>
   <button class="tab-btn" onclick="switchTab('finance')">Finance & Legal</button>
-  <button class="tab-btn" onclick="openDiscussion()">💬 Discussion</button>
 </div>
 
+<!-- ══════════ CONTENT ══════════ -->
 <div class="content">
 
+<!-- ════ OVERVIEW ════ -->
 <div id="tab-overview" class="tab-panel active">
-  <div class="alert-strip"><div class="alert-icon">⚡</div><div class="alert-text"><strong>CRITICAL MILESTONE:</strong> Official Program Launch — October 2026 · Pre-seed $100K SAFE secured · All departments mobilizing. First Flight target locked: 2028. First customer delivery: 2030.</div></div>
+  <div class="alert-strip">
+    <div class="alert-icon">⚡</div>
+    <div class="alert-text"><strong>CRITICAL MILESTONE:</strong> Official Program Launch — October 2026 · Pre-seed $100K SAFE secured · All departments mobilizing. First Flight target locked: 2028. First customer delivery: 2030.</div>
+  </div>
+
   <div class="section-title mb16">Program Health Dashboard</div>
+
   <div class="grid-4 mb24">
-    <div class="card green"><div class="card-label">Funding</div><div class="metric-big"><div class="metric-big-value" style="color:var(--green)">$100K</div><div class="metric-big-label">Pre-Seed SAFE</div></div><p style="font-size:10px;text-align:center;margin-top:8px;">Venture Capital secured. Series A targeting 2026–2027.</p></div>
-    <div class="card accent"><div class="card-label">Team Build</div><div class="metric-big"><div class="metric-big-value" style="color:var(--cyan)">16</div><div class="metric-big-label">Key Roles Defined</div></div><p style="font-size:10px;text-align:center;margin-top:8px;">C-Suite + Engineering + Operations fully scoped.</p></div>
-    <div class="card gold"><div class="card-label">Program Risk</div><div class="metric-big"><div class="metric-big-value" style="color:var(--gold)">MED</div><div class="metric-big-label">Risk Level</div></div><p style="font-size:10px;text-align:center;margin-top:8px;">Aggressive 2028 FFT target. Funding scale-up critical.</p></div>
-    <div class="card"><div class="card-label">Certification Path</div><div class="metric-big"><div class="metric-big-value" style="color:var(--blue2)">TC</div><div class="metric-big-label">FAA 14 CFR Part 25</div></div><p style="font-size:10px;text-align:center;margin-top:8px;">DO-178C / DO-254 compliance. DER Structures in-house.</p></div>
+    <div class="card green">
+      <div class="card-label">Funding</div>
+      <div class="metric-big">
+        <div class="metric-big-value" style="color:var(--green)">$100K</div>
+        <div class="metric-big-label">Pre-Seed SAFE</div>
+      </div>
+      <p style="font-size:10px;text-align:center;margin-top:8px;">Venture Capital secured. Series A targeting 2026–2027.</p>
+    </div>
+    <div class="card accent">
+      <div class="card-label">Team Build</div>
+      <div class="metric-big">
+        <div class="metric-big-value" style="color:var(--cyan)">16</div>
+        <div class="metric-big-label">Key Roles Defined</div>
+      </div>
+      <p style="font-size:10px;text-align:center;margin-top:8px;">C-Suite + Engineering + Operations fully scoped.</p>
+    </div>
+    <div class="card gold">
+      <div class="card-label">Program Risk</div>
+      <div class="metric-big">
+        <div class="metric-big-value" style="color:var(--gold)">MED</div>
+        <div class="metric-big-label">Risk Level</div>
+      </div>
+      <p style="font-size:10px;text-align:center;margin-top:8px;">Aggressive 2028 FFT target. Funding scale-up critical.</p>
+    </div>
+    <div class="card">
+      <div class="card-label">Certification Path</div>
+      <div class="metric-big">
+        <div class="metric-big-value" style="color:var(--blue2)">TC</div>
+        <div class="metric-big-label">FAA 14 CFR Part 25</div>
+      </div>
+      <p style="font-size:10px;text-align:center;margin-top:8px;">DO-178C / DO-254 compliance. DER Structures in-house.</p>
+    </div>
   </div>
+
   <div class="grid-2 mb24">
-    <div class="card"><div class="card-label">Workstream Progress (Pre-Launch Readiness)</div><div class="progress-item"><div class="progress-header"><span class="progress-label">Executive Team Structuring</span><span class="progress-pct">85%</span></div><div class="progress-bar"><div class="progress-fill green" style="width:85%"></div></div></div><div class="progress-item"><div class="progress-header"><span class="progress-label">Aircraft Concept Definition (PDR)</span><span class="progress-pct">70%</span></div><div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div></div><div class="progress-item"><div class="progress-header"><span class="progress-label">Design Toolchain Setup (CATIA/ANSYS)</span><span class="progress-pct">50%</span></div><div class="progress-bar"><div class="progress-fill" style="width:50%"></div></div></div><div class="progress-item"><div class="progress-header"><span class="progress-label">Tier-1 Supplier Identification</span><span class="progress-pct">40%</span></div><div class="progress-bar"><div class="progress-fill gold" style="width:40%"></div></div></div><div class="progress-item"><div class="progress-header"><span class="progress-label">FAA G1 Issue Paper Filing</span><span class="progress-pct">20%</span></div><div class="progress-bar"><div class="progress-fill orange" style="width:20%"></div></div></div><div class="progress-item"><div class="progress-header"><span class="progress-label">Funding Series A Pipeline</span><span class="progress-pct">30%</span></div><div class="progress-bar"><div class="progress-fill gold" style="width:30%"></div></div></div></div>
-    <div class="card"><div class="card-label">Strategic Priorities — Q4 2026</div><div class="risk-item"><div class="risk-level risk-high">URGENT</div><div class="risk-desc"><div class="risk-title">Series A Fundraise ($20–50M)</div><div class="risk-mitigation">Bridge pre-seed to full program funding. Target aerospace-focused VCs + SBIR/STTR government grants.</div></div></div><div class="risk-item"><div class="risk-level risk-high">URGENT</div><div class="risk-desc"><div class="risk-title">FAA Type Certification Basis Agreement</div><div class="risk-mitigation">File G1 Issue Paper. Establish certification basis under 14 CFR Part 25 with FAA Seattle/Fort Worth ACO.</div></div></div><div class="risk-item"><div class="risk-level risk-med">HIGH</div><div class="risk-desc"><div class="risk-title">Rolls-Royce Trent XWB Engine MoU</div><div class="risk-mitigation">Initiate formal propulsion agreement with Rolls-Royce Dallas. Secure engine supply + integration data.</div></div></div><div class="risk-item"><div class="risk-level risk-med">HIGH</div><div class="risk-desc"><div class="risk-title">CATIA V6 / 3DEXP Full Deployment</div><div class="risk-mitigation">License activation + Siemens Teamcenter PLM integration. Digital twin framework instantiation.</div></div></div><div class="risk-item"><div class="risk-level risk-low">STANDARD</div><div class="risk-desc"><div class="risk-title">Texas HQ Office + Lab Establishment</div><div class="risk-mitigation">Secure design facility. Proximity to DFW, Dallas aerospace ecosystem and RR maintenance base.</div></div></div></div>
+    <div class="card">
+      <div class="card-label">Workstream Progress (Pre-Launch Readiness)</div>
+      <div class="progress-item">
+        <div class="progress-header"><span class="progress-label">Executive Team Structuring</span><span class="progress-pct">85%</span></div>
+        <div class="progress-bar"><div class="progress-fill green" style="width:85%"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-header"><span class="progress-label">Aircraft Concept Definition (PDR)</span><span class="progress-pct">70%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:70%"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-header"><span class="progress-label">Design Toolchain Setup (CATIA/ANSYS)</span><span class="progress-pct">50%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:50%"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-header"><span class="progress-label">Tier-1 Supplier Identification</span><span class="progress-pct">40%</span></div>
+        <div class="progress-bar"><div class="progress-fill gold" style="width:40%"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-header"><span class="progress-label">FAA G1 Issue Paper Filing</span><span class="progress-pct">20%</span></div>
+        <div class="progress-bar"><div class="progress-fill orange" style="width:20%"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-header"><span class="progress-label">Funding Series A Pipeline</span><span class="progress-pct">30%</span></div>
+        <div class="progress-bar"><div class="progress-fill gold" style="width:30%"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">Strategic Priorities — Q4 2026</div>
+      <div class="risk-item">
+        <div class="risk-level risk-high">URGENT</div>
+        <div class="risk-desc">
+          <div class="risk-title">Series A Fundraise ($20–50M)</div>
+          <div class="risk-mitigation">Bridge pre-seed to full program funding. Target aerospace-focused VCs + SBIR/STTR government grants.</div>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-level risk-high">URGENT</div>
+        <div class="risk-desc">
+          <div class="risk-title">FAA Type Certification Basis Agreement</div>
+          <div class="risk-mitigation">File G1 Issue Paper. Establish certification basis under 14 CFR Part 25 with FAA Seattle/Fort Worth ACO.</div>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-level risk-med">HIGH</div>
+        <div class="risk-desc">
+          <div class="risk-title">Rolls-Royce Trent XWB Engine MoU</div>
+          <div class="risk-mitigation">Initiate formal propulsion agreement with Rolls-Royce Dallas. Secure engine supply + integration data.</div>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-level risk-med">HIGH</div>
+        <div class="risk-desc">
+          <div class="risk-title">CATIA V6 / 3DEXP Full Deployment</div>
+          <div class="risk-mitigation">License activation + Siemens Teamcenter PLM integration. Digital twin framework instantiation.</div>
+        </div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-level risk-low">STANDARD</div>
+        <div class="risk-desc">
+          <div class="risk-title">Texas HQ Office + Lab Establishment</div>
+          <div class="risk-mitigation">Secure design facility. Proximity to DFW, Dallas aerospace ecosystem and RR maintenance base.</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<div id="tab-team" class="tab-panel"><div class="section-title mb16">C-Suite Leadership</div><div class="exec-grid mb24"><div class="exec-card"><div class="exec-avatar" style="background:linear-gradient(135deg,#3878ff,#00d4ff)">CDO</div><div class="exec-info"><div class="exec-role">Chief Design Officer</div><div class="exec-name">Claude / AI · CDO</div><div class="exec-focus">Leads aircraft conceptual & detailed design. Owns CATIA V6 / 3DEXP digital twin architecture and all design standards for Yelinha1000.</div><div class="exec-tags"><span class="tag tag-blue">CATIA V6</span><span class="tag tag-cyan">Digital Twin</span><span class="tag tag-gold">Aesthetics</span></div></div></div><div class="exec-card"><div class="exec-avatar" style="background:linear-gradient(135deg,#6a3de8,#3878ff)">COO</div><div class="exec-info"><div class="exec-role">Chief Operating Officer</div><div class="exec-name">Claude / AI · COO</div><div class="exec-focus">Manages program execution, cross-department cadence, EVMS milestone tracking, and operational readiness from design to delivery.</div><div class="exec-tags"><span class="tag tag-blue">EVMS</span><span class="tag tag-orange">MS Project</span><span class="tag tag-green">Ops</span></div></div></div><div class="exec-card"><div class="exec-avatar" style="background:linear-gradient(135deg,#00b4d8,#0077b6)">CTO</div><div class="exec-info"><div class="exec-role">Chief Technology Officer</div><div class="exec-name">Claude / AI · CTO</div><div class="exec-focus">Drives technology roadmap: MBSE/SysML architecture, DO-178C/DO-254 avionics software, fly-by-wire systems, and innovation pipeline.</div><div class="exec-tags"><span class="tag tag-cyan">MBSE/SysML</span><span class="tag tag-blue">DO-178C</span><span class="tag tag-blue">FBW</span></div></div></div><div class="exec-card"><div class="exec-avatar" style="background:linear-gradient(135deg,#f0b429,#e67e22)">CFO</div><div class="exec-info"><div class="exec-role">Chief Financial Officer</div><div class="exec-name">Claude / AI · CFO</div><div class="exec-focus">Manages $100K pre-seed SAFE allocation, Series A fundraise strategy, program burn rate, EVMS earned value, and investor reporting.</div><div class="exec-tags"><span class="tag tag-gold">SAFE</span><span class="tag tag-gold">Series A</span><span class="tag tag-green">EVMS</span></div></div></div><div class="exec-card"><div class="exec-avatar" style="background:linear-gradient(135deg,#ff4567,#c0392b)">CLO</div><div class="exec-info"><div class="exec-role">Head of Legal</div><div class="exec-name">Claude / AI · CLO</div><div class="exec-focus">Texas incorporation, SAFE agreements, IP protection, export control (ITAR/EAR), supplier contracts, and FAA regulatory compliance legal framework.</div><div class="exec-tags"><span class="tag tag-red">ITAR/EAR</span><span class="tag tag-red">IP</span><span class="tag tag-gold">Contracts</span></div></div></div><div class="exec-card"><div class="exec-avatar" style="background:linear-gradient(135deg,#00e5a0,#009966)">HRM</div><div class="exec-info"><div class="exec-role">HR Director</div><div class="exec-name">Claude / AI · HR</div><div class="exec-focus">Talent acquisition strategy for aerospace engineers, compensation benchmarking vs. Boeing/Airbus, culture building, and Texas workforce compliance.</div><div class="exec-tags"><span class="tag tag-green">Recruiting</span><span class="tag tag-green">Culture</span><span class="tag tag-blue">Texas Labor</span></div></div></div><div class="exec-card"><div class="exec-avatar" style="background:linear-gradient(135deg,#ff8c42,#e65100)">MKT</div><div class="exec-info"><div class="exec-role">Head of Marketing & Sales</div><div class="exec-name">Claude / AI · CMO</div><div class="exec-focus">Launch of YELINHAWORLD brand at Farnborough/Paris Air Show, airline customer pipeline, LOIs, investor communications, and PR strategy.</div><div class="exec-tags"><span class="tag tag-orange">Airshow</span><span class="tag tag-orange">LOIs</span><span class="tag tag-gold">Brand</span></div></div></div></div><div class="section-title mb16">Engineering Leadership</div><div class="exec-grid mb24"><div class="exec-card"><div class="exec-avatar" style="background:linear-gradient(135deg,#3878ff,#1a3a8a)">CE</div><div class="exec-info"><div class="exec-role">Chief Engineer</div><div class="exec-name">Claude / AI · Chief Engr.</div><div class="exec-focus">Systems engineering authority. Owns requirements flow-down, interface control documents, and technical decision authority across all engineering disciplines.</div><div class="exec-tags"><span class="tag tag-blue">SysML</span><span class="tag tag-cyan">ICDs</span><span class="tag tag-blue">Part 25</span></div></div></div><div class="exec-card"><div class="exec-avatar" style="background:linear-gradient(135deg,#00d4ff,#006494)">VPA</div><div class="exec-info"><div class="exec-role">VP Aerodynamics</div><div class="exec-name">Claude / AI · VP Aero</div><div class="exec-focus">High-aspect-ratio wing design, curved wingtip optimization, drag polar development. ANSYS Fluent CFD lead. Nacelle integration and transonic cruise performance.</div><div class="exec-tags"><span class="tag tag-cyan">ANSYS Fluent</span><span class="tag tag-cyan">CFD</span><span class="tag tag-blue">Wingtips</span></div></div></div><div class="exec-card"><div class="exec-avatar" style="background:linear-gradient(135deg,#a855f7,#6a1b9a)">LSE</div><div class="exec-info"><div class="exec-role">Lead Structures Engineer</div><div class="exec-name">Claude / AI · Struct. Lead</div><div class="exec-focus">Fuselage, wing, empennage structural design. NASTRAN/ABAQUS loads, fatigue, flutter analysis. DER Structures qualification. Composite material selection.</div><div class="exec-tags"><span class="tag tag-blue">NASTRAN</span><span class="tag tag-blue">ABAQUS</span><span class="tag tag-gold">DER Struct.</span></div></div></div><div class="exec-card"><div class="exec-avatar" style="background:linear-gradient(135deg,#f0b429,#7a5c00)">HAV</div><div class="exec-info"><div class="exec-role">Head of Avionics</div><div class="exec-name">Claude / AI · Avionics</div><div class="exec-focus">Integrated modular avionics architecture. Primary/backup FCMC, navigation systems, weather radar, TCAS/ADS-B, Ku-band. DO-178C DAL-A compliance.</div><div class="exec-tags"><span class="tag tag-gold">DO-178C</span><span class="tag tag-gold">DO-254</span><span class="tag tag-cyan">IMA</span></div></div></div><div class="exec-card"><div class="exec-avatar" style="background:linear-gradient(135deg,#ff4567,#6b0014)">DER</div><div class="exec-info"><div class="exec-role">FAA DER — Structures</div><div class="exec-name">Claude / AI · DER</div><div class="exec-focus">FAA Designated Engineering Representative for Structures. Approves structural data, test plans, and compliance findings under 14 CFR Part 25 Subpart C.</div><div class="exec-tags"><span class="tag tag-red">FAA DER</span><span class="tag tag-red">Part 25</span><span class="tag tag-gold">Compliance</span></div></div></div><div class="exec-card"><div class="exec-avatar" style="background:linear-gradient(135deg,#ff8c42,#5c2900)">PSE</div><div class="exec-info"><div class="exec-role">Propulsion Systems Engineer</div><div class="exec-name">Claude / AI · Propulsion</div><div class="exec-focus">Trent XWB integration: pylon design, thrust reverser, FADEC interface, fuel system, bleed air architecture, engine health monitoring.</div><div class="exec-tags"><span class="tag tag-orange">Trent XWB</span><span class="tag tag-orange">FADEC</span><span class="tag tag-blue">Pylon</span></div></div></div><div class="exec-card"><div class="exec-avatar" style="background:linear-gradient(135deg,#00e5a0,#003322)">CFD</div><div class="exec-info"><div class="exec-role">CFD Analysts (Team)</div><div class="exec-name">Claude / AI · CFD Team</div><div class="exec-focus">Wing & nacelle CFD optimization using ANSYS Fluent. Transonic drag reduction, high-lift device simulation, engine-airframe interference analysis.</div><div class="exec-tags"><span class="tag tag-green">ANSYS Fluent</span><span class="tag tag-green">HPC</span><span class="tag tag-cyan">Wing Opt.</span></div></div></div><div class="exec-card"><div class="exec-avatar" style="background:linear-gradient(135deg,#3878ff,#0a1a4a)">SC</div><div class="exec-info"><div class="exec-role">Supply Chain Director</div><div class="exec-name">Claude / AI · SCM</div><div class="exec-focus">Tier-1 supplier qualification and contract negotiation. AS9100 supplier quality management. BoM control via Siemens Teamcenter. Risk-based supplier monitoring.</div><div class="exec-tags"><span class="tag tag-blue">AS9100</span><span class="tag tag-cyan">Teamcenter</span><span class="tag tag-blue">Tier-1</span></div></div></div><div class="exec-card"><div class="exec-avatar" style="background:linear-gradient(135deg,#c0392b,#4a0000)">CERT</div><div class="exec-info"><div class="exec-role">Head of Certification</div><div class="exec-name">Claude / AI · Cert.</div><div class="exec-focus">FAA 14 CFR Part 25 type certificate management. Certification plan, Issue Papers, CP/MPS, compliance matrix, flight test program, and TC final approval.</div><div class="exec-tags"><span class="tag tag-red">FAA TC</span><span class="tag tag-red">Part 25</span><span class="tag tag-gold">Cert Plan</span></div></div></div></div></div>
+<!-- ════ TEAM ════ -->
+<div id="tab-team" class="tab-panel">
+  <div class="section-title mb16">C-Suite Leadership</div>
+  <div class="exec-grid mb24">
 
-<div id="tab-aircraft" class="tab-panel"><div class="section-title mb16">Yelinha1000 — General Arrangement</div><div class="grid-2 mb24"><div class="card accent"><div class="card-label">Principal Dimensions</div><table class="spec-table"><tr><td>Overall Length</td><td class="spec-value-highlight">66.8 m (219 ft 2 in)</td></tr><tr><td>Wingspan</td><td class="spec-value-highlight">64.75 m (212 ft 5 in)</td></tr><tr><td>Height (OAH)</td><td class="spec-value-highlight">17.05 m (55 ft 11 in)</td></tr><tr><td>Fuselage Diameter</td><td class="spec-value-highlight">4.96 m</td></tr><tr><td>Cabin Width (Max)</td><td class="spec-value-highlight">4.61 m</td></tr><tr><td>Cabin Height</td><td class="spec-value-highlight">2.80 m</td></tr><tr><td>Wheel Track</td><td class="spec-value-highlight">10.6 m</td></tr><tr><td>Wheelbase</td><td class="spec-value-highlight">22.18 m</td></tr></table></div><div class="card gold"><div class="card-label">Propulsion & Systems</div><table class="spec-table"><tr><td>Engine Type</td><td>Rolls-Royce Trent XWB</td></tr><tr><td>Engine Count</td><td class="spec-value-highlight">2 × (Twinjet)</td></tr><tr><td>Engine Location</td><td>Under-wing podded on pylons</td></tr><tr><td>Flight Controls</td><td>Fly-By-Wire (FBW)</td></tr><tr><td>Primary FCC</td><td>4× Primary Flight Control Computers</td></tr><tr><td>Backup FCC</td><td>Alternate/Backup FCCs</td></tr><tr><td>Wing Design</td><td>High-aspect-ratio + Curved Wingtips</td></tr><tr><td>Fuselage Cross-sect.</td><td>Twin-aisle widebody</td></tr></table></div></div><div class="section-title mb16">Systems Architecture</div><div class="grid-3 mb24"><div class="card"><div class="card-label">Electrical & Power</div><table class="spec-table"><tr><td>Power Centers</td><td>6× Electrical Power Centers</td></tr><tr><td>RAT</td><td>Ram Air Turbine (emergency)</td></tr><tr><td>GPU</td><td>Ground Power Unit compatible</td></tr><tr><td>Emergency</td><td>Full emergency systems suite</td></tr></table></div><div class="card"><div class="card-label">Fire & Safety</div><table class="spec-table"><tr><td>Fire Extinguishers</td><td>2× Fire extinguishing bottles</td></tr><tr><td>FDR</td><td>2× Flight Data Recorders</td></tr><tr><td>ELT</td><td>2× Emergency Locator Transmitters</td></tr><tr><td>Emergency Sys.</td><td>Full FAA Part 25 compliant suite</td></tr></table></div><div class="card"><div class="card-label">Water & Waste</div><table class="spec-table"><tr><td>Water Tank</td><td>100 gallon</td></tr><tr><td>Water Mixer</td><td>Integrated system</td></tr><tr><td>Waste Tank</td><td>100 gallon</td></tr><tr><td>Gray Water</td><td>Drain mast system</td></tr><tr><td>Outflow Valve</td><td>Cabin pressurization control</td></tr><tr><td>Outlet Tube</td><td>Integrated</td></tr></table></div><div class="card"><div class="card-label">Navigation & Surveillance</div><table class="spec-table"><tr><td>GPS</td><td>Multi-constellation GPS</td></tr><tr><td>Weather Radar</td><td>Forward weather radar antenna</td></tr><tr><td>TCAS/ADS-B</td><td>2× Collision avoidance systems</td></tr><tr><td>ATS</td><td>2× Air Traffic Surveillance</td></tr><tr><td>Ku-Band</td><td>Satellite connectivity</td></tr><tr><td>Nav Systems</td><td>Full IRS/GPS/VOR/ILS suite</td></tr></table></div><div class="card"><div class="card-label">Lighting & Exterior</div><table class="spec-table"><tr><td>Navigation Lights</td><td>LED nav lights (wingtip + tail)</td></tr><tr><td>Aircraft Lighting</td><td>Full ext. lighting system</td></tr><tr><td>Anti-Ice / De-Ice</td><td>Wing + engine cowl systems</td></tr><tr><td>Cabin & Galley</td><td>Twin-aisle widebody interior</td></tr><tr><td>Cargo</td><td>Belly cargo space systems</td></tr></table></div><div class="card"><div class="card-label">Structural Assemblies</div><table class="spec-table"><tr><td>Wings</td><td>Full aircraft wing assemblies</td></tr><tr><td>Wing Panels</td><td>Upper/lower skin panels</td></tr><tr><td>Empennage</td><td>Horizontal + vertical stabilizers</td></tr><tr><td>Horiz. Stabilizer</td><td>Variable incidence THS</td></tr><tr><td>Fuselage</td><td>Full barrel sections</td></tr><tr><td>Pylons</td><td>2× Engine pylons</td></tr><tr><td>Landing Gear</td><td>Complete MLG + NLG assembly</td></tr></table></div></div></div>
+    <div class="exec-card">
+      <div class="exec-avatar" style="background:linear-gradient(135deg,#3878ff,#00d4ff)">CDO</div>
+      <div class="exec-info">
+        <div class="exec-role">Chief Design Officer</div>
+        <div class="exec-name">Claude / AI · CDO</div>
+        <div class="exec-focus">Leads aircraft conceptual & detailed design. Owns CATIA V6 / 3DEXP digital twin architecture and all design standards for Yelinha1000.</div>
+        <div class="exec-tags">
+          <span class="tag tag-blue">CATIA V6</span>
+          <span class="tag tag-cyan">Digital Twin</span>
+          <span class="tag tag-gold">Aesthetics</span>
+        </div>
+      </div>
+    </div>
 
-<div id="tab-timeline" class="tab-panel"><div class="section-title mb16">Master Program Schedule</div><div class="grid-2"><div><div class="timeline"><div class="timeline-item done"><div class="tl-date">2025–2026 Q2</div><div class="tl-title">Company Formation & Pre-Seed</div><div class="tl-desc">YELINHAWORLD incorporated in Texas. $100K SAFE pre-seed secured from VC. Executive leadership defined. Aircraft concept initiated.</div><div class="tl-badge tag tag-green">COMPLETE</div></div><div class="timeline-item active-now"><div class="tl-date">OCT 2026</div><div class="tl-title">Official Program Launch</div><div class="tl-desc">Public program announcement. Yelinha1000 concept reveal. FAA pre-application meeting. Key engineering hires. CATIA V6 / 3DEXP + Teamcenter deployment. Series A roadshow launch.</div><div class="tl-badge tag tag-cyan">ACTIVE</div></div><div class="timeline-item critical"><div class="tl-date">Q1–Q2 2027</div><div class="tl-title">Preliminary Design Review (PDR)</div><div class="tl-desc">Aircraft architecture locked. Wing, fuselage, empennage configurations frozen. MBSE/SysML architecture complete. Tier-1 supplier RFPs issued. Series A closed.</div><div class="tl-badge tag tag-gold">CRITICAL</div></div><div class="timeline-item"><div class="tl-date">Q3–Q4 2027</div><div class="tl-title">Critical Design Review (CDR)</div><div class="tl-desc">Detailed design 100% in CATIA. NASTRAN loads & fatigue analysis complete. Avionics architecture finalized. DO-178C/DO-254 software plans approved. Long lead Tier-1 POs placed.</div><div class="tl-badge tag tag-blue">PLANNED</div></div><div class="timeline-item critical"><div class="tl-date">Q1–Q2 2028</div><div class="tl-title">First Aircraft Assembly</div><div class="tl-desc">First aircraft fuselage barrel join. Wing-body join. Trent XWB engine installation on pylons. Systems installation and integration. Ground vibration test (GVT).</div><div class="tl-badge tag tag-gold">CRITICAL</div></div><div class="timeline-item critical"><div class="tl-date">Q3–Q4 2028</div><div class="tl-title">First Flight (FFT Target)</div><div class="tl-desc">Ground run & taxi tests. First flight of YW-001. FAA Flight Test Authorization. Begin FAA certification flight test program. Target: 2028 first flight.</div><div class="tl-badge tag tag-gold">TARGET</div></div><div class="timeline-item"><div class="tl-date">2029</div><div class="tl-title">Certification Flight Test Campaign</div><div class="tl-desc">Full FAA 14 CFR Part 25 flight test program. Performance, handling, systems, extreme conditions, avionics, airworthiness. 3-aircraft test fleet. DO-178C DAL software final approval.</div><div class="tl-badge tag tag-blue">PLANNED</div></div><div class="timeline-item"><div class="tl-date">Q3–Q4 2030</div><div class="tl-title">Type Certificate & First Delivery</div><div class="tl-desc">FAA Type Certificate awarded. Production Certificate initiated. First Yelinha1000 delivery to launch customer. Entry Into Service (EIS). EASA validation parallel track.</div><div class="tl-badge tag tag-green">TARGET</div></div></div></div><div><div class="section-title mb16">Parallel Workstreams</div><div class="card mb16"><div class="card-label">Engineering Milestones</div><div class="progress-item"><div class="progress-header"><span class="progress-label">Conceptual Design (CoDR)</span><span class="progress-pct">2026</span></div><div class="progress-bar"><div class="progress-fill" style="width:90%"></div></div></div><div class="progress-item"><div class="progress-header"><span class="progress-label">Preliminary Design (PDR)</span><span class="progress-pct">Q1 2027</span></div><div class="progress-bar"><div class="progress-fill" style="width:55%"></div></div></div><div class="progress-item"><div class="progress-header"><span class="progress-label">Critical Design (CDR)</span><span class="progress-pct">Q4 2027</span></div><div class="progress-bar"><div class="progress-fill gold" style="width:20%"></div></div></div><div class="progress-item"><div class="progress-header"><span class="progress-label">Manufacturing Readiness (MRR)</span><span class="progress-pct">Q2 2028</span></div><div class="progress-bar"><div class="progress-fill orange" style="width:5%"></div></div></div><div class="progress-item"><div class="progress-header"><span class="progress-label">First Flight (FFT)</span><span class="progress-pct">2028</span></div><div class="progress-bar"><div class="progress-fill" style="width:2%"></div></div></div><div class="progress-item"><div class="progress-header"><span class="progress-label">Type Certificate (TC)</span><span class="progress-pct">2030</span></div><div class="progress-bar"><div class="progress-fill green" style="width:1%"></div></div></div></div><div class="card"><div class="card-label">Key Program Risks</div><div class="risk-item"><div class="risk-level risk-high">HIGH</div><div class="risk-desc"><div class="risk-title">Funding Gap Pre-Series A</div><div class="risk-mitigation">$100K SAFE insufficient beyond 6 months. Series A must close by Q1 2027. SBIR Phase I/II as bridge option.</div></div></div><div class="risk-item"><div class="risk-level risk-high">HIGH</div><div class="risk-desc"><div class="risk-title">2028 FFT Aggressive Schedule</div><div class="risk-mitigation">OEM equivalent programs take 8–12 years. Mitigation: advanced digital twin, concurrent engineering, proven supplier assemblies.</div></div></div><div class="risk-item"><div class="risk-level risk-med">MED</div><div class="risk-desc"><div class="risk-title">FAA Certification Complexity</div><div class="risk-mitigation">New OEM with no prior TC history. Early FAA engagement, in-house DER, proven DO-178C toolchain critical.</div></div></div><div class="risk-item"><div class="risk-level risk-low">LOW</div><div class="risk-desc"><div class="risk-title">Trent XWB Supply Security</div><div class="risk-mitigation">Engine on backorder. Early MoU with Rolls-Royce Dallas essential. Backup engine study (GE9X) as contingency.</div></div></div></div></div></div></div>
+    <div class="exec-card">
+      <div class="exec-avatar" style="background:linear-gradient(135deg,#6a3de8,#3878ff)">COO</div>
+      <div class="exec-info">
+        <div class="exec-role">Chief Operating Officer</div>
+        <div class="exec-name">Claude / AI · COO</div>
+        <div class="exec-focus">Manages program execution, cross-department cadence, EVMS milestone tracking, and operational readiness from design to delivery.</div>
+        <div class="exec-tags">
+          <span class="tag tag-blue">EVMS</span>
+          <span class="tag tag-orange">MS Project</span>
+          <span class="tag tag-green">Ops</span>
+        </div>
+      </div>
+    </div>
 
-<div id="tab-technology" class="tab-panel"><div class="section-title mb16">Digital Engineering & Design Tools</div><div class="tool-grid mb24"><div class="tool-card"><div class="tool-icon">✈</div><div class="tool-name">CATIA V6 / 3DEXP</div><div class="tool-use">Full aircraft digital twin. Master geometry. All discipline design (structures, systems, interiors). Single-source-of-truth model.</div></div><div class="tool-card"><div class="tool-icon">💨</div><div class="tool-name">ANSYS Fluent</div><div class="tool-use">Wing & nacelle CFD optimization. Transonic flow analysis. High-lift device simulation. Engine-airframe interference studies.</div></div><div class="tool-card"><div class="tool-icon">🔩</div><div class="tool-name">NASTRAN / ABAQUS</div><div class="tool-use">Structural loads, fatigue life, flutter prediction. Static + dynamic FEM. Composite laminate analysis. Damage tolerance compliance.</div></div><div class="tool-card"><div class="tool-icon">📦</div><div class="tool-name">Siemens Teamcenter</div><div class="tool-use">PLM: Bill of Materials management. Configuration control. Document management. Change management & supplier data exchange.</div></div><div class="tool-card"><div class="tool-icon">🔷</div><div class="tool-name">MBSE / SysML</div><div class="tool-use">Model-based systems architecture. Requirements traceability. Interface definitions. Functional architecture. Systems integration baseline.</div></div><div class="tool-card"><div class="tool-icon">✅</div><div class="tool-name">DO-178C / DO-254</div><div class="tool-use">Avionics software & hardware assurance. DAL-A through DAL-D compliance. FAA 14 CFR Part 25. FCMC, FMS, IMA certification basis.</div></div><div class="tool-card"><div class="tool-icon">🏭</div><div class="tool-name">DELMIA / MES</div><div class="tool-use">Digital factory simulation. Assembly sequence optimization. Manufacturing process planning. Line balancing. Ergonomics simulation.</div></div><div class="tool-card"><div class="tool-icon">📊</div><div class="tool-name">EVMS / MS Project</div><div class="tool-use">Earned Value Management System. Program schedule. Cost performance index. Budget at completion. Monthly EVM reporting to investors.</div></div></div><div class="section-title mb16">Technology Differentiation Strategy</div><div class="grid-3"><div class="card accent"><div class="card-label">Aerodynamic Innovation</div><h3>High-Aspect-Ratio Wing</h3><p>Curved wingtip technology for induced drag reduction. ANSYS Fluent-optimized wing profile targeting best-in-class L/D ratio at long-range cruise conditions.</p><div class="exec-tags" style="margin-top:12px"><span class="tag tag-cyan">Winglets</span><span class="tag tag-cyan">Low Drag</span><span class="tag tag-blue">Fuel Efficiency</span></div></div><div class="card gold"><div class="card-label">Digital Engineering</div><h3>Full Aircraft Digital Twin</h3><p>CATIA V6 / 3DEXPERIENCE digital twin enables concurrent engineering across all disciplines, drastically compressing design cycle from concept to CDR.</p><div class="exec-tags" style="margin-top:12px"><span class="tag tag-gold">Digital Twin</span><span class="tag tag-gold">Concurrent Eng.</span></div></div><div class="card green"><div class="card-label">Systems Architecture</div><h3>Advanced Fly-By-Wire</h3><p>4× primary + backup alternate FCCs. MBSE/SysML architecture with full redundancy. DO-178C DAL-A software. State-of-the-art envelope protection.</p><div class="exec-tags" style="margin-top:12px"><span class="tag tag-green">FBW</span><span class="tag tag-green">Redundancy</span><span class="tag tag-cyan">DAL-A</span></div></div></div></div>
+    <div class="exec-card">
+      <div class="exec-avatar" style="background:linear-gradient(135deg,#00b4d8,#0077b6)">CTO</div>
+      <div class="exec-info">
+        <div class="exec-role">Chief Technology Officer</div>
+        <div class="exec-name">Claude / AI · CTO</div>
+        <div class="exec-focus">Drives technology roadmap: MBSE/SysML architecture, DO-178C/DO-254 avionics software, fly-by-wire systems, and innovation pipeline.</div>
+        <div class="exec-tags">
+          <span class="tag tag-cyan">MBSE/SysML</span>
+          <span class="tag tag-blue">DO-178C</span>
+          <span class="tag tag-blue">FBW</span>
+        </div>
+      </div>
+    </div>
 
-<div id="tab-supplychain" class="tab-panel"><div class="section-title mb16">Tier-1 Supplier Program — YELINHAWORLD</div><div class="alert-strip"><div class="alert-icon">🔗</div><div class="alert-text"><strong>SUPPLY CHAIN STRATEGY:</strong> YELINHAWORLD follows an asset-light OEM model — major structural assemblies and systems supplied by qualified Tier-1 suppliers. BoM and configuration control via Siemens Teamcenter. All suppliers must be AS9100 Rev D certified.</div></div><div class="section-title mb16 mt24">Tier-1 Supplier Categories</div><div class="grid-2 mb24"><div class="card"><div class="card-label">Structural Assemblies</div><div class="supplier-grid"><div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">Aircraft Wings (complete)</div></div><div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">Wing Panels (upper/lower)</div></div><div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">Fuselage barrel sections</div></div><div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">Horizontal Stabilizer</div></div><div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">Empennage assembly</div></div><div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">Pylons (engine mounts)</div></div><div class="supplier-item"><div class="supplier-dot green"></div><div class="supplier-name">Landing Gear (complete)</div></div></div></div><div class="card"><div class="card-label">Avionics & Flight Systems</div><div class="supplier-grid"><div class="supplier-item"><div class="supplier-dot"></div><div class="supplier-name">4× Primary Flight Control Computers</div></div><div class="supplier-item"><div class="supplier-dot"></div><div class="supplier-name">Backup/Alternate Flight Computers</div></div><div class="supplier-item"><div class="supplier-dot"></div><div class="supplier-name">Fly-by-Wire System</div></div><div class="supplier-item"><div class="supplier-dot"></div><div class="supplier-name">Avionics Systems suite</div></div><div class="supplier-item"><div class="supplier-dot"></div><div class="supplier-name">Navigation Systems</div></div><div class="supplier-item"><div class="supplier-dot cyan"></div><div class="supplier-name">Cockpit components</div></div><div class="supplier-item"><div class="supplier-dot cyan"></div><div class="supplier-name">GPS receiver</div></div><div class="supplier-item"><div class="supplier-dot cyan"></div><div class="supplier-name">Ku-Band satellite antenna</div></div></div></div><div class="card"><div class="card-label">Safety & Emergency Systems</div><div class="supplier-grid"><div class="supplier-item"><div class="supplier-dot orange"></div><div class="supplier-name">RAT (Ram Air Turbine)</div></div><div class="supplier-item"><div class="supplier-dot orange"></div><div class="supplier-name">2× Fire Extinguishing Bottles</div></div><div class="supplier-item"><div class="supplier-dot orange"></div><div class="supplier-name">2× Flight Data Recorders</div></div><div class="supplier-item"><div class="supplier-dot orange"></div><div class="supplier-name">Emergency Systems suite</div></div><div class="supplier-item"><div class="supplier-dot orange"></div><div class="supplier-name">2× Emergency Locator Transmitters</div></div><div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">2× Collision Avoidance (TCAS)</div></div><div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">2× Air Traffic Surveillance</div></div><div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">Weather Radar Antenna</div></div></div></div><div class="card"><div class="card-label">Power, Utilities & Cabin</div><div class="supplier-grid"><div class="supplier-item"><div class="supplier-dot green"></div><div class="supplier-name">6× Electrical Power Centers</div></div><div class="supplier-item"><div class="supplier-dot green"></div><div class="supplier-name">GPU (Ground Power Unit)</div></div><div class="supplier-item"><div class="supplier-dot"></div><div class="supplier-name">Outflow Valve (pressurization)</div></div><div class="supplier-item"><div class="supplier-dot"></div><div class="supplier-name">Outlets Tube systems</div></div><div class="supplier-item"><div class="supplier-dot"></div><div class="supplier-name">Water Tank (100 gal)</div></div><div class="supplier-item"><div class="supplier-dot"></div><div class="supplier-name">Waste Tank (100 gal)</div></div><div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">Cabin & Galley systems</div></div><div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">Cargo Space Systems</div></div><div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">De-ice & Anti-ice Systems</div></div><div class="supplier-item"><div class="supplier-dot cyan"></div><div class="supplier-name">Navigation & Aircraft Lights</div></div><div class="supplier-item"><div class="supplier-dot cyan"></div><div class="supplier-name">Gray Water Drain Mast</div></div><div class="supplier-item"><div class="supplier-dot cyan"></div><div class="supplier-name">Water Mixer system</div></div></div></div></div><div class="card"><div class="card-label">Propulsion — Strategic Supplier</div><div class="grid-2"><div><div class="exec-role" style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--blue2);margin-bottom:6px">PRIME PROPULSION PARTNER</div><h3 style="font-family:'Orbitron',sans-serif;font-size:14px;color:var(--text);margin-bottom:6px">Rolls-Royce — Trent XWB</h3><p style="font-size:11px;color:var(--text2);line-height:1.6">The Trent XWB is the world's most efficient large aero engine. Powers the Airbus A350. YELINHAWORLD will negotiate a dedicated engine supply agreement and integration data package with Rolls-Royce's Dallas maintenance hub. Engine selection provides best-in-class SFC for long-range operations.</p><div class="exec-tags" style="margin-top:10px"><span class="tag tag-blue">Trent XWB-84</span><span class="tag tag-blue">FADEC</span><span class="tag tag-blue">Thrust Reverser</span><span class="tag tag-cyan">Health Monitor</span></div></div><div><div class="progress-item"><div class="progress-header"><span class="progress-label">MoU / LOI with Rolls-Royce</span><span class="progress-pct">Q4 2026</span></div><div class="progress-bar"><div class="progress-fill orange" style="width:15%"></div></div></div><div class="progress-item"><div class="progress-header"><span class="progress-label">Engine Integration Data Package</span><span class="progress-pct">Q2 2027</span></div><div class="progress-bar"><div class="progress-fill" style="width:5%"></div></div></div><div class="progress-item"><div class="progress-header"><span class="progress-label">FADEC Interface Definition</span><span class="progress-pct">CDR 2027</span></div><div class="progress-bar"><div class="progress-fill" style="width:3%"></div></div></div><div class="progress-item"><div class="progress-header"><span class="progress-label">Engine Delivery (First Aircraft)</span><span class="progress-pct">2028</span></div><div class="progress-bar"><div class="progress-fill green" style="width:1%"></div></div></div></div></div></div></div>
+    <div class="exec-card">
+      <div class="exec-avatar" style="background:linear-gradient(135deg,#f0b429,#e67e22)">CFO</div>
+      <div class="exec-info">
+        <div class="exec-role">Chief Financial Officer</div>
+        <div class="exec-name">Claude / AI · CFO</div>
+        <div class="exec-focus">Manages $100K pre-seed SAFE allocation, Series A fundraise strategy, program burn rate, EVMS earned value, and investor reporting.</div>
+        <div class="exec-tags">
+          <span class="tag tag-gold">SAFE</span>
+          <span class="tag tag-gold">Series A</span>
+          <span class="tag tag-green">EVMS</span>
+        </div>
+      </div>
+    </div>
 
-<div id="tab-certification" class="tab-panel"><div class="section-title mb16">FAA Type Certification Plan — 14 CFR Part 25</div><div class="alert-strip"><div class="alert-icon">🏛</div><div class="alert-text"><strong>CERTIFICATION AUTHORITY:</strong> Federal Aviation Administration (FAA) · Aircraft Certification Office (ACO) · Standards: 14 CFR Part 25 (Airworthiness Standards: Transport Category) · DO-178C (Software) · DO-254 (Hardware) · DO-160G (Environmental). DER Structures in-house. EASA BASA validation planned in parallel.</div></div><div class="grid-2 mt24"><div><div class="section-title mb16">Certification Phases</div><div class="cert-step"><div class="cert-num">01</div><div class="cert-content"><div class="cert-title">Pre-Application Meeting (PAM)</div><div class="cert-detail">Initial FAA engagement. Present program overview, proposed cert basis, schedule. Identify ACO point of contact. Target: Q4 2026.</div></div></div><div class="cert-step"><div class="cert-num">02</div><div class="cert-content"><div class="cert-title">G1 Issue Paper — Certification Basis</div><div class="cert-detail">Formally establish applicable 14 CFR Part 25 amendment level. Identify special conditions, equivalent safety findings, exemptions. Target: Q1 2027.</div></div></div><div class="cert-step"><div class="cert-num">03</div><div class="cert-content"><div class="cert-title">Certification Plan (CP) & MPS</div><div class="cert-detail">Compliance method per regulation (test, analysis, inspection, similarity). Master Project Schedule with FAA milestones. Issue Papers for novel features (FBW, composite structure).</div></div></div><div class="cert-step"><div class="cert-num">04</div><div class="cert-content"><div class="cert-title">Avionics: DO-178C / DO-254 Plans</div><div class="cert-detail">Software Development Plans for all DAL-A through DAL-D software (FCMC, FMS, TCAS, ELT). Hardware Design Assurance Plans for flight computers and electrical systems. FAA DER software approval.</div></div></div><div class="cert-step"><div class="cert-num">05</div><div class="cert-content"><div class="cert-title">Ground Tests & Structural Qualification</div><div class="cert-detail">Static load tests (ultimate load, limit load). Fatigue & damage tolerance per Part 25.571. Ground Vibration Test (GVT). Systems integration tests. Fire resistance. Bird strike. Ditching.</div></div></div><div class="cert-step"><div class="cert-num">06</div><div class="cert-content"><div class="cert-title">Flight Test Authorization (FTA)</div><div class="cert-detail">FAA approval for Experimental Airworthiness Certificate. Begin flight test program. Dedicated FAA Flight Test Engineer assigned. 3-aircraft fleet recommended.</div></div></div><div class="cert-step"><div class="cert-num">07</div><div class="cert-content"><div class="cert-title">Certification Flight Test Program</div><div class="cert-detail">Full Part 25 compliance flight tests: performance (§25.101–115), stability & control, stall, high-altitude, cold soak, hot & high, systems, emergency, minimum control speeds, flutter, autopilot.</div></div></div><div class="cert-step"><div class="cert-num">08</div><div class="cert-content"><div class="cert-title">Type Certificate Awarded</div><div class="cert-detail">All compliance findings closed. Compliance Checklist complete. Production Approval (PC/PAH). Airworthiness Directive surveillance baseline. Target: 2030. EASA BASA validation parallel.</div></div></div></div><div><div class="section-title mb16">Key Regulatory References</div><div class="card mb16"><div class="card-label">14 CFR Part 25 — Key Subparts</div><table class="spec-table"><tr><td>Subpart B · Flight</td><td>Performance, climb, cruise, stall, control speeds</td></tr><tr><td>Subpart C · Structure</td><td>Loads, fatigue, damage tolerance, flutter</td></tr><tr><td>Subpart D · Design & Const.</td><td>Materials, fasteners, bird strike, ditching</td></tr><tr><td>Subpart E · Powerplant</td><td>Engine installation, fire protection, fuel system</td></tr><tr><td>Subpart F · Equipment</td><td>Instruments, avionics, lighting, ELT</td></tr><tr><td>Subpart G · OPS Limitations</td><td>Flight manual, placard, marking requirements</td></tr><tr><td>Appendix H</td><td>Instructions for Continued Airworthiness</td></tr></table></div><div class="card mb16"><div class="card-label">DO-178C Software Assurance Levels</div><table class="spec-table"><tr><td>DAL-A (Catastrophic)</td><td>FCMC, Primary FCCs — highest rigor</td></tr><tr><td>DAL-B (Hazardous)</td><td>FMS, TCAS, alternate FCC</td></tr><tr><td>DAL-C (Major)</td><td>Weather radar, nav display, fuel MGMT</td></tr><tr><td>DAL-D (Minor)</td><td>Cabin systems, lighting, infotainment</td></tr></table></div><div class="card"><div class="card-label">In-House DER Capability</div><div class="risk-item"><div class="risk-level risk-low">ASSET</div><div class="risk-desc"><div class="risk-title">FAA DER — Structures (In-House)</div><div class="risk-mitigation">Having a DER in-house for structures dramatically accelerates structural data approval cycles and reduces external consulting cost. Authority to approve structural test plans, analyses, and compliance findings directly with FAA.</div></div></div><div class="risk-item"><div class="risk-level risk-med">NEEDED</div><div class="risk-desc"><div class="risk-title">DER — Systems / Avionics (To Hire)</div><div class="risk-mitigation">Target hiring or contracting a DER for Avionics (DO-178C) and Flight Controls by Q1 2027. Critical for FBW and FCMC software compliance approval speed.</div></div></div></div></div></div></div>
+    <div class="exec-card">
+      <div class="exec-avatar" style="background:linear-gradient(135deg,#ff4567,#c0392b)">CLO</div>
+      <div class="exec-info">
+        <div class="exec-role">Head of Legal</div>
+        <div class="exec-name">Claude / AI · CLO</div>
+        <div class="exec-focus">Texas incorporation, SAFE agreements, IP protection, export control (ITAR/EAR), supplier contracts, and FAA regulatory compliance legal framework.</div>
+        <div class="exec-tags">
+          <span class="tag tag-red">ITAR/EAR</span>
+          <span class="tag tag-red">IP</span>
+          <span class="tag tag-gold">Contracts</span>
+        </div>
+      </div>
+    </div>
 
-<div id="tab-finance" class="tab-panel"><div class="section-title mb16">Financial Architecture — YELINHAWORLD</div><div class="grid-4 mb24"><div class="card green"><div class="card-label">Secured</div><div class="metric-big"><div class="metric-big-value" style="color:var(--green);font-size:28px">$100K</div><div class="metric-big-label">Pre-Seed SAFE</div></div><p style="font-size:10px;text-align:center;margin-top:6px">Venture Capital · SAFE Note · Oct 2026</p></div><div class="card gold"><div class="card-label">Series A Target</div><div class="metric-big"><div class="metric-big-value" style="color:var(--gold);font-size:28px">$20–50M</div><div class="metric-big-label">Series A Round</div></div><p style="font-size:10px;text-align:center;margin-top:6px">Target: Q4 2026 – Q1 2027</p></div><div class="card"><div class="card-label">Series B Target</div><div class="metric-big"><div class="metric-big-value" style="color:var(--blue2);font-size:28px">$200–500M</div><div class="metric-big-label">Series B Round</div></div><p style="font-size:10px;text-align:center;margin-top:6px">Target: 2028–2029 (Flight Test)</p></div><div class="card"><div class="card-label">EIS Revenue</div><div class="metric-big"><div class="metric-big-value" style="color:var(--cyan);font-size:22px">PIPELINE</div><div class="metric-big-label">Customer LOIs</div></div><p style="font-size:10px;text-align:center;margin-top:6px">First delivery 2030 · LOI target 2027</p></div></div><div class="grid-2"><div><div class="section-title mb16">Pre-Seed Budget Allocation ($100K SAFE)</div><div class="card mb16"><div class="card-label">Allocation Plan</div><div class="budget-row"><div class="budget-label">Engineering Software Licenses</div><div class="budget-bar-wrap"><div class="budget-bar-fill" style="width:30%;background:linear-gradient(90deg,var(--blue),var(--cyan))"></div></div><div class="budget-amount">~$30K</div></div><div class="budget-row"><div class="budget-label">Office & Lab Setup (Texas)</div><div class="budget-bar-wrap"><div class="budget-bar-fill" style="width:20%;background:linear-gradient(90deg,var(--gold),#ffda7a)"></div></div><div class="budget-amount">~$20K</div></div><div class="budget-row"><div class="budget-label">Legal (Corp, SAFE, IP, ITAR)</div><div class="budget-bar-wrap"><div class="budget-bar-fill" style="width:15%;background:linear-gradient(90deg,var(--red),#ff8888)"></div></div><div class="budget-amount">~$15K</div></div><div class="budget-row"><div class="budget-label">Key Engineering Hires (initial)</div><div class="budget-bar-wrap"><div class="budget-bar-fill" style="width:20%;background:linear-gradient(90deg,var(--green),#80ffcc)"></div></div><div class="budget-amount">~$20K</div></div><div class="budget-row"><div class="budget-label">FAA Pre-Application + DER Fees</div><div class="budget-bar-wrap"><div class="budget-bar-fill" style="width:8%;background:linear-gradient(90deg,var(--orange),#ffb97a)"></div></div><div class="budget-amount">~$8K</div></div><div class="budget-row"><div class="budget-label">Marketing / Airshow / Brand</div><div class="budget-bar-wrap"><div class="budget-bar-fill" style="width:7%;background:linear-gradient(90deg,#a855f7,#7c3aed)"></div></div><div class="budget-amount">~$7K</div></div></div><div class="card"><div class="card-label">Funding Roadmap</div><div class="timeline" style="padding-left:20px"><div class="timeline-item done" style="margin-bottom:12px"><div class="tl-date">OCT 2026</div><div class="tl-title" style="font-size:11px">$100K SAFE Pre-Seed</div><div class="tl-desc" style="font-size:10px">VC secured. Program launched.</div></div><div class="timeline-item active-now" style="margin-bottom:12px"><div class="tl-date">Q4 2026 – Q1 2027</div><div class="tl-title" style="font-size:11px">Series A: $20–50M Target</div><div class="tl-desc" style="font-size:10px">Aerospace VCs + SBIR Phase I/II. Bridge to PDR & CDR.</div></div><div class="timeline-item" style="margin-bottom:12px"><div class="tl-date">2027–2028</div><div class="tl-title" style="font-size:11px">Series B: $200–500M Target</div><div class="tl-desc" style="font-size:10px">Strategic investors + airline customers. Fund first aircraft build + flight test.</div></div><div class="timeline-item" style="margin-bottom:0"><div class="tl-date">2029–2030</div><div class="tl-title" style="font-size:11px">Revenue / IPO / Strategic</div><div class="tl-desc" style="font-size:10px">First customer deliveries. Revenue stream. IPO or strategic acquisition consideration.</div></div></div></div></div><div><div class="section-title mb16">Legal Framework — Head of Legal</div><div class="card mb16"><div class="card-label">Corporate & Securities</div><div class="cert-step"><div class="cert-num" style="font-size:9px;width:24px;height:24px">TX</div><div class="cert-content"><div class="cert-title">Texas C-Corp Incorporation</div><div class="cert-detail">Delaware C-Corp (preferred for VC) with Texas principal office. Stock structure: Common + Preferred Series A-ready cap table.</div></div></div><div class="cert-step"><div class="cert-num" style="font-size:9px;width:24px;height:24px">$</div><div class="cert-content"><div class="cert-title">SAFE Note Management</div><div class="cert-detail">Y Combinator SAFE template. MFN + valuation cap provisions. Investor relations and reporting obligations.</div></div></div><div class="cert-step"><div class="cert-num" style="font-size:9px;width:24px;height:24px">IP</div><div class="cert-content"><div class="cert-title">Intellectual Property Protection</div><div class="cert-detail">Patent strategy for novel wing design, FBW architecture, wingtip technology. Trade secret protocols. IP assignment agreements for all employees.</div></div></div></div><div class="card mb16"><div class="card-label">Regulatory & Compliance</div><div class="risk-item"><div class="risk-level risk-high">CRITICAL</div><div class="risk-desc"><div class="risk-title">ITAR / EAR Export Control</div><div class="risk-mitigation">Aircraft technology is ITAR-controlled. Establish Technology Control Plan. Classify all components per USML/CCL. Foreign national employee screening required.</div></div></div><div class="risk-item"><div class="risk-level risk-med">HIGH</div><div class="risk-desc"><div class="risk-title">Supplier Contracts (Tier-1 T&Cs)</div><div class="risk-mitigation">FAR/DFARS-aligned contract templates. AS9100 quality clauses. IP ownership, first article acceptance, delivery penalty provisions.</div></div></div><div class="risk-item"><div class="risk-level risk-low">STANDARD</div><div class="risk-desc"><div class="risk-title">Employment Law — Texas</div><div class="risk-mitigation">At-will employment + NDA + non-solicitation agreements. Employee stock option plan (ESOP). Texas aerospace wage benchmarking.</div></div></div></div><div class="card"><div class="card-label">Fundraising Legal Milestones</div><table class="spec-table"><tr><td>SAFE Conversion Terms</td><td>At Series A closing</td></tr><tr><td>Series A Term Sheet</td><td>Q4 2026 target</td></tr><tr><td>Series A Legal Close</td><td>Q1 2027 target</td></tr><tr><td>LOI Framework (Airlines)</td><td>Q2–Q3 2027</td></tr><tr><td>Supplier MSAs</td><td>Q1–Q2 2027</td></tr><tr><td>R-R Engine Agreement</td><td>Q4 2026</td></tr></table></div></div></div></div>
+    <div class="exec-card">
+      <div class="exec-avatar" style="background:linear-gradient(135deg,#00e5a0,#009966)">HRM</div>
+      <div class="exec-info">
+        <div class="exec-role">HR Director</div>
+        <div class="exec-name">Claude / AI · HR</div>
+        <div class="exec-focus">Talent acquisition strategy for aerospace engineers, compensation benchmarking vs. Boeing/Airbus, culture building, and Texas workforce compliance.</div>
+        <div class="exec-tags">
+          <span class="tag tag-green">Recruiting</span>
+          <span class="tag tag-green">Culture</span>
+          <span class="tag tag-blue">Texas Labor</span>
+        </div>
+      </div>
+    </div>
 
+    <div class="exec-card">
+      <div class="exec-avatar" style="background:linear-gradient(135deg,#ff8c42,#e65100)">MKT</div>
+      <div class="exec-info">
+        <div class="exec-role">Head of Marketing & Sales</div>
+        <div class="exec-name">Claude / AI · CMO</div>
+        <div class="exec-focus">Launch of YELINHAWORLD brand at Farnborough/Paris Air Show, airline customer pipeline, LOIs, investor communications, and PR strategy.</div>
+        <div class="exec-tags">
+          <span class="tag tag-orange">Airshow</span>
+          <span class="tag tag-orange">LOIs</span>
+          <span class="tag tag-gold">Brand</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title mb16">Engineering Leadership</div>
+  <div class="exec-grid mb24">
+
+    <div class="exec-card">
+      <div class="exec-avatar" style="background:linear-gradient(135deg,#3878ff,#1a3a8a)">CE</div>
+      <div class="exec-info">
+        <div class="exec-role">Chief Engineer</div>
+        <div class="exec-name">Claude / AI · Chief Engr.</div>
+        <div class="exec-focus">Systems engineering authority. Owns requirements flow-down, interface control documents, and technical decision authority across all engineering disciplines.</div>
+        <div class="exec-tags">
+          <span class="tag tag-blue">SysML</span>
+          <span class="tag tag-cyan">ICDs</span>
+          <span class="tag tag-blue">Part 25</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exec-card">
+      <div class="exec-avatar" style="background:linear-gradient(135deg,#00d4ff,#006494)">VPA</div>
+      <div class="exec-info">
+        <div class="exec-role">VP Aerodynamics</div>
+        <div class="exec-name">Claude / AI · VP Aero</div>
+        <div class="exec-focus">High-aspect-ratio wing design, curved wingtip optimization, drag polar development. ANSYS Fluent CFD lead. Nacelle integration and transonic cruise performance.</div>
+        <div class="exec-tags">
+          <span class="tag tag-cyan">ANSYS Fluent</span>
+          <span class="tag tag-cyan">CFD</span>
+          <span class="tag tag-blue">Wingtips</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exec-card">
+      <div class="exec-avatar" style="background:linear-gradient(135deg,#a855f7,#6a1b9a)">LSE</div>
+      <div class="exec-info">
+        <div class="exec-role">Lead Structures Engineer</div>
+        <div class="exec-name">Claude / AI · Struct. Lead</div>
+        <div class="exec-focus">Fuselage, wing, empennage structural design. NASTRAN/ABAQUS loads, fatigue, flutter analysis. DER Structures qualification. Composite material selection.</div>
+        <div class="exec-tags">
+          <span class="tag tag-blue">NASTRAN</span>
+          <span class="tag tag-blue">ABAQUS</span>
+          <span class="tag tag-gold">DER Struct.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exec-card">
+      <div class="exec-avatar" style="background:linear-gradient(135deg,#f0b429,#7a5c00)">HAV</div>
+      <div class="exec-info">
+        <div class="exec-role">Head of Avionics</div>
+        <div class="exec-name">Claude / AI · Avionics</div>
+        <div class="exec-focus">Integrated modular avionics architecture. Primary/backup FCMC, navigation systems, weather radar, TCAS/ADS-B, Ku-band. DO-178C DAL-A compliance.</div>
+        <div class="exec-tags">
+          <span class="tag tag-gold">DO-178C</span>
+          <span class="tag tag-gold">DO-254</span>
+          <span class="tag tag-cyan">IMA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exec-card">
+      <div class="exec-avatar" style="background:linear-gradient(135deg,#ff4567,#6b0014)">DER</div>
+      <div class="exec-info">
+        <div class="exec-role">FAA DER — Structures</div>
+        <div class="exec-name">Claude / AI · DER</div>
+        <div class="exec-focus">FAA Designated Engineering Representative for Structures. Approves structural data, test plans, and compliance findings under 14 CFR Part 25 Subpart C.</div>
+        <div class="exec-tags">
+          <span class="tag tag-red">FAA DER</span>
+          <span class="tag tag-red">Part 25</span>
+          <span class="tag tag-gold">Compliance</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exec-card">
+      <div class="exec-avatar" style="background:linear-gradient(135deg,#ff8c42,#5c2900)">PSE</div>
+      <div class="exec-info">
+        <div class="exec-role">Propulsion Systems Engineer</div>
+        <div class="exec-name">Claude / AI · Propulsion</div>
+        <div class="exec-focus">Trent XWB integration: pylon design, thrust reverser, FADEC interface, fuel system, bleed air architecture, engine health monitoring.</div>
+        <div class="exec-tags">
+          <span class="tag tag-orange">Trent XWB</span>
+          <span class="tag tag-orange">FADEC</span>
+          <span class="tag tag-blue">Pylon</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exec-card">
+      <div class="exec-avatar" style="background:linear-gradient(135deg,#00e5a0,#003322)">CFD</div>
+      <div class="exec-info">
+        <div class="exec-role">CFD Analysts (Team)</div>
+        <div class="exec-name">Claude / AI · CFD Team</div>
+        <div class="exec-focus">Wing & nacelle CFD optimization using ANSYS Fluent. Transonic drag reduction, high-lift device simulation, engine-airframe interference analysis.</div>
+        <div class="exec-tags">
+          <span class="tag tag-green">ANSYS Fluent</span>
+          <span class="tag tag-green">HPC</span>
+          <span class="tag tag-cyan">Wing Opt.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exec-card">
+      <div class="exec-avatar" style="background:linear-gradient(135deg,#3878ff,#0a1a4a)">SC</div>
+      <div class="exec-info">
+        <div class="exec-role">Supply Chain Director</div>
+        <div class="exec-name">Claude / AI · SCM</div>
+        <div class="exec-focus">Tier-1 supplier qualification and contract negotiation. AS9100 supplier quality management. BoM control via Siemens Teamcenter. Risk-based supplier monitoring.</div>
+        <div class="exec-tags">
+          <span class="tag tag-blue">AS9100</span>
+          <span class="tag tag-cyan">Teamcenter</span>
+          <span class="tag tag-blue">Tier-1</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exec-card">
+      <div class="exec-avatar" style="background:linear-gradient(135deg,#c0392b,#4a0000)">CERT</div>
+      <div class="exec-info">
+        <div class="exec-role">Head of Certification</div>
+        <div class="exec-name">Claude / AI · Cert.</div>
+        <div class="exec-focus">FAA 14 CFR Part 25 type certificate management. Certification plan, Issue Papers, CP/MPS, compliance matrix, flight test program, and TC final approval.</div>
+        <div class="exec-tags">
+          <span class="tag tag-red">FAA TC</span>
+          <span class="tag tag-red">Part 25</span>
+          <span class="tag tag-gold">Cert Plan</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<div style="border-top:1px solid var(--border2);padding:16px 36px;display:flex;justify-content:space-between;align-items:center;background:rgba(8,14,30,0.5);flex-wrap:wrap;gap:12px">
-  <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:2px">YELINHAWORLD © 2026 · TEXAS, USA · CONFIDENTIAL — PROGRAM INTERNAL</div>
-  <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--text3);letter-spacing:1.5px">YELINHA1000 · FAA 14 CFR PART 25 · FFT 2028 · EIS 2030</div>
-  <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--blue2);letter-spacing:1px">AI EXECUTIVE TEAM · ALL ROLES · Joseph Yelinha DEGUENON</div>
+<!-- ════ AIRCRAFT SPECS ════ -->
+<div id="tab-aircraft" class="tab-panel">
+  <div class="section-title mb16">Yelinha1000 — General Arrangement</div>
+
+  <div class="grid-2 mb24">
+    <div class="card accent">
+      <div class="card-label">Principal Dimensions</div>
+      <table class="spec-table">
+        <tr><td>Overall Length</td><td class="spec-value-highlight">66.8 m (219 ft 2 in)</td></tr>
+        <tr><td>Wingspan</td><td class="spec-value-highlight">64.75 m (212 ft 5 in)</td></tr>
+        <tr><td>Height (OAH)</td><td class="spec-value-highlight">17.05 m (55 ft 11 in)</td></tr>
+        <tr><td>Fuselage Diameter</td><td class="spec-value-highlight">4.96 m</td></tr>
+        <tr><td>Cabin Width (Max)</td><td class="spec-value-highlight">4.61 m</td></tr>
+        <tr><td>Cabin Height</td><td class="spec-value-highlight">2.80 m</td></tr>
+        <tr><td>Wheel Track</td><td class="spec-value-highlight">10.6 m</td></tr>
+        <tr><td>Wheelbase</td><td class="spec-value-highlight">22.18 m</td></tr>
+      </table>
+    </div>
+    <div class="card gold">
+      <div class="card-label">Propulsion & Systems</div>
+      <table class="spec-table">
+        <tr><td>Engine Type</td><td>Rolls-Royce Trent XWB</td></tr>
+        <tr><td>Engine Count</td><td class="spec-value-highlight">2 × (Twinjet)</td></tr>
+        <tr><td>Engine Location</td><td>Under-wing podded on pylons</td></tr>
+        <tr><td>Flight Controls</td><td>Fly-By-Wire (FBW)</td></tr>
+        <tr><td>Primary FCC</td><td>4× Primary Flight Control Computers</td></tr>
+        <tr><td>Backup FCC</td><td>Alternate/Backup FCCs</td></tr>
+        <tr><td>Wing Design</td><td>High-aspect-ratio + Curved Wingtips</td></tr>
+        <tr><td>Fuselage Cross-sect.</td><td>Twin-aisle widebody</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section-title mb16">Systems Architecture</div>
+
+  <div class="grid-3 mb24">
+    <div class="card">
+      <div class="card-label">Electrical & Power</div>
+      <table class="spec-table">
+        <tr><td>Power Centers</td><td>6× Electrical Power Centers</td></tr>
+        <tr><td>RAT</td><td>Ram Air Turbine (emergency)</td></tr>
+        <tr><td>GPU</td><td>Ground Power Unit compatible</td></tr>
+        <tr><td>Emergency</td><td>Full emergency systems suite</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-label">Fire & Safety</div>
+      <table class="spec-table">
+        <tr><td>Fire Extinguishers</td><td>2× Fire extinguishing bottles</td></tr>
+        <tr><td>FDR</td><td>2× Flight Data Recorders</td></tr>
+        <tr><td>ELT</td><td>2× Emergency Locator Transmitters</td></tr>
+        <tr><td>Emergency Sys.</td><td>Full FAA Part 25 compliant suite</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-label">Water & Waste</div>
+      <table class="spec-table">
+        <tr><td>Water Tank</td><td>100 gallon</td></tr>
+        <tr><td>Water Mixer</td><td>Integrated system</td></tr>
+        <tr><td>Waste Tank</td><td>100 gallon</td></tr>
+        <tr><td>Gray Water</td><td>Drain mast system</td></tr>
+        <tr><td>Outflow Valve</td><td>Cabin pressurization control</td></tr>
+        <tr><td>Outlet Tube</td><td>Integrated</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-label">Navigation & Surveillance</div>
+      <table class="spec-table">
+        <tr><td>GPS</td><td>Multi-constellation GPS</td></tr>
+        <tr><td>Weather Radar</td><td>Forward weather radar antenna</td></tr>
+        <tr><td>TCAS/ADS-B</td><td>2× Collision avoidance systems</td></tr>
+        <tr><td>ATS</td><td>2× Air Traffic Surveillance</td></tr>
+        <tr><td>Ku-Band</td><td>Satellite connectivity</td></tr>
+        <tr><td>Nav Systems</td><td>Full IRS/GPS/VOR/ILS suite</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-label">Lighting & Exterior</div>
+      <table class="spec-table">
+        <tr><td>Navigation Lights</td><td>LED nav lights (wingtip + tail)</td></tr>
+        <tr><td>Aircraft Lighting</td><td>Full ext. lighting system</td></tr>
+        <tr><td>Anti-Ice / De-Ice</td><td>Wing + engine cowl systems</td></tr>
+        <tr><td>Cabin & Galley</td><td>Twin-aisle widebody interior</td></tr>
+        <tr><td>Cargo</td><td>Belly cargo space systems</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-label">Structural Assemblies</div>
+      <table class="spec-table">
+        <tr><td>Wings</td><td>Full aircraft wing assemblies</td></tr>
+        <tr><td>Wing Panels</td><td>Upper/lower skin panels</td></tr>
+        <tr><td>Empennage</td><td>Horizontal + vertical stabilizers</td></tr>
+        <tr><td>Horiz. Stabilizer</td><td>Variable incidence THS</td></tr>
+        <tr><td>Fuselage</td><td>Full barrel sections</td></tr>
+        <tr><td>Pylons</td><td>2× Engine pylons</td></tr>
+        <tr><td>Landing Gear</td><td>Complete MLG + NLG assembly</td></tr>
+      </table>
+    </div>
+  </div>
 </div>
 
+<!-- ════ TIMELINE ════ -->
+<div id="tab-timeline" class="tab-panel">
+  <div class="section-title mb16">Master Program Schedule</div>
+
+  <div class="grid-2">
+    <div>
+      <div class="timeline">
+
+        <div class="timeline-item done">
+          <div class="tl-date">2025–2026 Q2</div>
+          <div class="tl-title">Company Formation & Pre-Seed</div>
+          <div class="tl-desc">YELINHAWORLD incorporated in Texas. $100K SAFE pre-seed secured from VC. Executive leadership defined. Aircraft concept initiated.</div>
+          <div class="tl-badge tag tag-green">COMPLETE</div>
+        </div>
+
+        <div class="timeline-item active-now">
+          <div class="tl-date">OCT 2026</div>
+          <div class="tl-title">Official Program Launch</div>
+          <div class="tl-desc">Public program announcement. Yelinha1000 concept reveal. FAA pre-application meeting. Key engineering hires. CATIA V6 / 3DEXP + Teamcenter deployment. Series A roadshow launch.</div>
+          <div class="tl-badge tag tag-cyan">ACTIVE</div>
+        </div>
+
+        <div class="timeline-item critical">
+          <div class="tl-date">Q1–Q2 2027</div>
+          <div class="tl-title">Preliminary Design Review (PDR)</div>
+          <div class="tl-desc">Aircraft architecture locked. Wing, fuselage, empennage configurations frozen. MBSE/SysML architecture complete. Tier-1 supplier RFPs issued. Series A closed.</div>
+          <div class="tl-badge tag tag-gold">CRITICAL</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-date">Q3–Q4 2027</div>
+          <div class="tl-title">Critical Design Review (CDR)</div>
+          <div class="tl-desc">Detailed design 100% in CATIA. NASTRAN loads & fatigue analysis complete. Avionics architecture finalized. DO-178C/DO-254 software plans approved. Long lead Tier-1 POs placed.</div>
+          <div class="tl-badge tag tag-blue">PLANNED</div>
+        </div>
+
+        <div class="timeline-item critical">
+          <div class="tl-date">Q1–Q2 2028</div>
+          <div class="tl-title">First Aircraft Assembly</div>
+          <div class="tl-desc">First aircraft fuselage barrel join. Wing-body join. Trent XWB engine installation on pylons. Systems installation and integration. Ground vibration test (GVT).</div>
+          <div class="tl-badge tag tag-gold">CRITICAL</div>
+        </div>
+
+        <div class="timeline-item critical">
+          <div class="tl-date">Q3–Q4 2028</div>
+          <div class="tl-title">First Flight (FFT Target)</div>
+          <div class="tl-desc">Ground run & taxi tests. First flight of YW-001. FAA Flight Test Authorization. Begin FAA certification flight test program. Target: 2028 first flight.</div>
+          <div class="tl-badge tag tag-gold">TARGET</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-date">2029</div>
+          <div class="tl-title">Certification Flight Test Campaign</div>
+          <div class="tl-desc">Full FAA 14 CFR Part 25 flight test program. Performance, handling, systems, extreme conditions, avionics, airworthiness. 3-aircraft test fleet. DO-178C DAL software final approval.</div>
+          <div class="tl-badge tag tag-blue">PLANNED</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-date">Q3–Q4 2030</div>
+          <div class="tl-title">Type Certificate & First Delivery</div>
+          <div class="tl-desc">FAA Type Certificate awarded. Production Certificate initiated. First Yelinha1000 delivery to launch customer. Entry Into Service (EIS). EASA validation parallel track.</div>
+          <div class="tl-badge tag tag-green">TARGET</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title mb16">Parallel Workstreams</div>
+
+      <div class="card mb16">
+        <div class="card-label">Engineering Milestones</div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-label">Conceptual Design (CoDR)</span><span class="progress-pct">2026</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:90%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-label">Preliminary Design (PDR)</span><span class="progress-pct">Q1 2027</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:55%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-label">Critical Design (CDR)</span><span class="progress-pct">Q4 2027</span></div>
+          <div class="progress-bar"><div class="progress-fill gold" style="width:20%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-label">Manufacturing Readiness (MRR)</span><span class="progress-pct">Q2 2028</span></div>
+          <div class="progress-bar"><div class="progress-fill orange" style="width:5%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-label">First Flight (FFT)</span><span class="progress-pct">2028</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:2%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-label">Type Certificate (TC)</span><span class="progress-pct">2030</span></div>
+          <div class="progress-bar"><div class="progress-fill green" style="width:1%"></div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Key Program Risks</div>
+        <div class="risk-item">
+          <div class="risk-level risk-high">HIGH</div>
+          <div class="risk-desc">
+            <div class="risk-title">Funding Gap Pre-Series A</div>
+            <div class="risk-mitigation">$100K SAFE insufficient beyond 6 months. Series A must close by Q1 2027. SBIR Phase I/II as bridge option.</div>
+          </div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-level risk-high">HIGH</div>
+          <div class="risk-desc">
+            <div class="risk-title">2028 FFT Aggressive Schedule</div>
+            <div class="risk-mitigation">OEM equivalent programs take 8–12 years. Mitigation: advanced digital twin, concurrent engineering, proven supplier assemblies.</div>
+          </div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-level risk-med">MED</div>
+          <div class="risk-desc">
+            <div class="risk-title">FAA Certification Complexity</div>
+            <div class="risk-mitigation">New OEM with no prior TC history. Early FAA engagement, in-house DER, proven DO-178C toolchain critical.</div>
+          </div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-level risk-low">LOW</div>
+          <div class="risk-desc">
+            <div class="risk-title">Trent XWB Supply Security</div>
+            <div class="risk-mitigation">Engine on backorder. Early MoU with Rolls-Royce Dallas essential. Backup engine study (GE9X) as contingency.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<!-- ════ TECHNOLOGY ════ -->
+<div id="tab-technology" class="tab-panel">
+  <div class="section-title mb16">Digital Engineering & Design Tools</div>
+
+  <div class="tool-grid mb24">
+    <div class="tool-card">
+      <div class="tool-icon">✈</div>
+      <div class="tool-name">CATIA V6 / 3DEXP</div>
+      <div class="tool-use">Full aircraft digital twin. Master geometry. All discipline design (structures, systems, interiors). Single-source-of-truth model.</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">💨</div>
+      <div class="tool-name">ANSYS Fluent</div>
+      <div class="tool-use">Wing & nacelle CFD optimization. Transonic flow analysis. High-lift device simulation. Engine-airframe interference studies.</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">🔩</div>
+      <div class="tool-name">NASTRAN / ABAQUS</div>
+      <div class="tool-use">Structural loads, fatigue life, flutter prediction. Static + dynamic FEM. Composite laminate analysis. Damage tolerance compliance.</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">📦</div>
+      <div class="tool-name">Siemens Teamcenter</div>
+      <div class="tool-use">PLM: Bill of Materials management. Configuration control. Document management. Change management & supplier data exchange.</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">🔷</div>
+      <div class="tool-name">MBSE / SysML</div>
+      <div class="tool-use">Model-based systems architecture. Requirements traceability. Interface definitions. Functional architecture. Systems integration baseline.</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">✅</div>
+      <div class="tool-name">DO-178C / DO-254</div>
+      <div class="tool-use">Avionics software & hardware assurance. DAL-A through DAL-D compliance. FAA 14 CFR Part 25. FCMC, FMS, IMA certification basis.</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">🏭</div>
+      <div class="tool-name">DELMIA / MES</div>
+      <div class="tool-use">Digital factory simulation. Assembly sequence optimization. Manufacturing process planning. Line balancing. Ergonomics simulation.</div>
+    </div>
+    <div class="tool-card">
+      <div class="tool-icon">📊</div>
+      <div class="tool-name">EVMS / MS Project</div>
+      <div class="tool-use">Earned Value Management System. Program schedule. Cost performance index. Budget at completion. Monthly EVM reporting to investors.</div>
+    </div>
+  </div>
+
+  <div class="section-title mb16">Technology Differentiation Strategy</div>
+
+  <div class="grid-3">
+    <div class="card accent">
+      <div class="card-label">Aerodynamic Innovation</div>
+      <h3>High-Aspect-Ratio Wing</h3>
+      <p>Curved wingtip technology for induced drag reduction. ANSYS Fluent-optimized wing profile targeting best-in-class L/D ratio at long-range cruise conditions.</p>
+      <div class="exec-tags" style="margin-top:12px">
+        <span class="tag tag-cyan">Winglets</span>
+        <span class="tag tag-cyan">Low Drag</span>
+        <span class="tag tag-blue">Fuel Efficiency</span>
+      </div>
+    </div>
+    <div class="card gold">
+      <div class="card-label">Digital Engineering</div>
+      <h3>Full Aircraft Digital Twin</h3>
+      <p>CATIA V6 / 3DEXPERIENCE digital twin enables concurrent engineering across all disciplines, drastically compressing design cycle from concept to CDR.</p>
+      <div class="exec-tags" style="margin-top:12px">
+        <span class="tag tag-gold">Digital Twin</span>
+        <span class="tag tag-gold">Concurrent Eng.</span>
+      </div>
+    </div>
+    <div class="card green">
+      <div class="card-label">Systems Architecture</div>
+      <h3>Advanced Fly-By-Wire</h3>
+      <p>4× primary + backup alternate FCCs. MBSE/SysML architecture with full redundancy. DO-178C DAL-A software. State-of-the-art envelope protection.</p>
+      <div class="exec-tags" style="margin-top:12px">
+        <span class="tag tag-green">FBW</span>
+        <span class="tag tag-green">Redundancy</span>
+        <span class="tag tag-cyan">DAL-A</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ SUPPLY CHAIN ════ -->
+<div id="tab-supplychain" class="tab-panel">
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:20px">
+    <div class="section-title" style="margin-bottom:0">Tier-1 Supplier Program — YELINHAWORLD</div>
+    <a href="yelinhaworld_supply_chain_platform.html" style="text-decoration:none">
+      <button style="
+        display:flex;align-items:center;gap:10px;
+        padding:10px 22px;
+        background:linear-gradient(135deg,#3878ff,#00d4ff);
+        border:none;border-radius:4px;
+        font-family:'Orbitron',sans-serif;
+        font-size:10px;font-weight:700;
+        letter-spacing:2px;color:#fff;
+        cursor:pointer;
+        box-shadow:0 0 24px rgba(56,120,255,0.45);
+        transition:all 0.2s;
+        text-transform:uppercase;
+        position:relative;overflow:hidden;
+      "
+      onmouseover="this.style.boxShadow='0 0 40px rgba(0,212,255,0.7)';this.style.transform='translateY(-2px)'"
+      onmouseout="this.style.boxShadow='0 0 24px rgba(56,120,255,0.45)';this.style.transform='none'"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M20 7H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm0 12H4V9h16v10zM12 3.5L6.5 9H10v4h4V9h3.5L12 3.5z"/></svg>
+        ⬡ Supply Chain &amp; Contract
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="white" style="opacity:0.7"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+    </a>
+  </div>
+
+  <div class="alert-strip">
+    <div class="alert-icon">🔗</div>
+    <div class="alert-text"><strong>SUPPLY CHAIN STRATEGY:</strong> YELINHAWORLD follows an asset-light OEM model — major structural assemblies and systems supplied by qualified Tier-1 suppliers. BoM and configuration control via Siemens Teamcenter. All suppliers must be AS9100 Rev D certified.</div>
+  </div>
+
+  <div class="section-title mb16 mt24">Tier-1 Supplier Categories</div>
+
+  <div class="grid-2 mb24">
+    <div class="card">
+      <div class="card-label">Structural Assemblies</div>
+      <div class="supplier-grid">
+        <div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">Aircraft Wings (complete)</div></div>
+        <div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">Wing Panels (upper/lower)</div></div>
+        <div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">Fuselage barrel sections</div></div>
+        <div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">Horizontal Stabilizer</div></div>
+        <div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">Empennage assembly</div></div>
+        <div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">Pylons (engine mounts)</div></div>
+        <div class="supplier-item"><div class="supplier-dot green"></div><div class="supplier-name">Landing Gear (complete)</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Avionics & Flight Systems</div>
+      <div class="supplier-grid">
+        <div class="supplier-item"><div class="supplier-dot"></div><div class="supplier-name">4× Primary Flight Control Computers</div></div>
+        <div class="supplier-item"><div class="supplier-dot"></div><div class="supplier-name">Backup/Alternate Flight Computers</div></div>
+        <div class="supplier-item"><div class="supplier-dot"></div><div class="supplier-name">Fly-by-Wire System</div></div>
+        <div class="supplier-item"><div class="supplier-dot"></div><div class="supplier-name">Avionics Systems suite</div></div>
+        <div class="supplier-item"><div class="supplier-dot"></div><div class="supplier-name">Navigation Systems</div></div>
+        <div class="supplier-item"><div class="supplier-dot cyan"></div><div class="supplier-name">Cockpit components</div></div>
+        <div class="supplier-item"><div class="supplier-dot cyan"></div><div class="supplier-name">GPS receiver</div></div>
+        <div class="supplier-item"><div class="supplier-dot cyan"></div><div class="supplier-name">Ku-Band satellite antenna</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Safety & Emergency Systems</div>
+      <div class="supplier-grid">
+        <div class="supplier-item"><div class="supplier-dot orange"></div><div class="supplier-name">RAT (Ram Air Turbine)</div></div>
+        <div class="supplier-item"><div class="supplier-dot orange"></div><div class="supplier-name">2× Fire Extinguishing Bottles</div></div>
+        <div class="supplier-item"><div class="supplier-dot orange"></div><div class="supplier-name">2× Flight Data Recorders</div></div>
+        <div class="supplier-item"><div class="supplier-dot orange"></div><div class="supplier-name">Emergency Systems suite</div></div>
+        <div class="supplier-item"><div class="supplier-dot orange"></div><div class="supplier-name">2× Emergency Locator Transmitters</div></div>
+        <div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">2× Collision Avoidance (TCAS)</div></div>
+        <div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">2× Air Traffic Surveillance</div></div>
+        <div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">Weather Radar Antenna</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Power, Utilities & Cabin</div>
+      <div class="supplier-grid">
+        <div class="supplier-item"><div class="supplier-dot green"></div><div class="supplier-name">6× Electrical Power Centers</div></div>
+        <div class="supplier-item"><div class="supplier-dot green"></div><div class="supplier-name">GPU (Ground Power Unit)</div></div>
+        <div class="supplier-item"><div class="supplier-dot"></div><div class="supplier-name">Outflow Valve (pressurization)</div></div>
+        <div class="supplier-item"><div class="supplier-dot"></div><div class="supplier-name">Outlets Tube systems</div></div>
+        <div class="supplier-item"><div class="supplier-dot"></div><div class="supplier-name">Water Tank (100 gal)</div></div>
+        <div class="supplier-item"><div class="supplier-dot"></div><div class="supplier-name">Waste Tank (100 gal)</div></div>
+        <div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">Cabin & Galley systems</div></div>
+        <div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">Cargo Space Systems</div></div>
+        <div class="supplier-item"><div class="supplier-dot gold"></div><div class="supplier-name">De-ice & Anti-ice Systems</div></div>
+        <div class="supplier-item"><div class="supplier-dot cyan"></div><div class="supplier-name">Navigation & Aircraft Lights</div></div>
+        <div class="supplier-item"><div class="supplier-dot cyan"></div><div class="supplier-name">Gray Water Drain Mast</div></div>
+        <div class="supplier-item"><div class="supplier-dot cyan"></div><div class="supplier-name">Water Mixer system</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-label">Propulsion — Strategic Supplier</div>
+    <div class="grid-2">
+      <div>
+        <div class="exec-role" style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:2px;color:var(--blue2);margin-bottom:6px">PRIME PROPULSION PARTNER</div>
+        <h3 style="font-family:'Orbitron',sans-serif;font-size:14px;color:var(--text);margin-bottom:6px">Rolls-Royce — Trent XWB</h3>
+        <p style="font-size:11px;color:var(--text2);line-height:1.6">The Trent XWB is the world's most efficient large aero engine. Powers the Airbus A350. YELINHAWORLD will negotiate a dedicated engine supply agreement and integration data package with Rolls-Royce's Dallas maintenance hub. Engine selection provides best-in-class SFC for long-range operations.</p>
+        <div class="exec-tags" style="margin-top:10px">
+          <span class="tag tag-blue">Trent XWB-84</span>
+          <span class="tag tag-blue">FADEC</span>
+          <span class="tag tag-blue">Thrust Reverser</span>
+          <span class="tag tag-cyan">Health Monitor</span>
+        </div>
+      </div>
+      <div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-label">MoU / LOI with Rolls-Royce</span><span class="progress-pct">Q4 2026</span></div>
+          <div class="progress-bar"><div class="progress-fill orange" style="width:15%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-label">Engine Integration Data Package</span><span class="progress-pct">Q2 2027</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:5%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-label">FADEC Interface Definition</span><span class="progress-pct">CDR 2027</span></div>
+          <div class="progress-bar"><div class="progress-fill" style="width:3%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span class="progress-label">Engine Delivery (First Aircraft)</span><span class="progress-pct">2028</span></div>
+          <div class="progress-bar"><div class="progress-fill green" style="width:1%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ CERTIFICATION ════ -->
+<div id="tab-certification" class="tab-panel">
+  <div class="section-title mb16">FAA Type Certification Plan — 14 CFR Part 25</div>
+
+  <div class="alert-strip">
+    <div class="alert-icon">🏛</div>
+    <div class="alert-text"><strong>CERTIFICATION AUTHORITY:</strong> Federal Aviation Administration (FAA) · Aircraft Certification Office (ACO) · Standards: 14 CFR Part 25 (Airworthiness Standards: Transport Category) · DO-178C (Software) · DO-254 (Hardware) · DO-160G (Environmental). DER Structures in-house. EASA BASA validation planned in parallel.</div>
+  </div>
+
+  <div class="grid-2 mt24">
+    <div>
+      <div class="section-title mb16">Certification Phases</div>
+
+      <div class="cert-step">
+        <div class="cert-num">01</div>
+        <div class="cert-content">
+          <div class="cert-title">Pre-Application Meeting (PAM)</div>
+          <div class="cert-detail">Initial FAA engagement. Present program overview, proposed cert basis, schedule. Identify ACO point of contact. Target: Q4 2026.</div>
+        </div>
+      </div>
+
+      <div class="cert-step">
+        <div class="cert-num">02</div>
+        <div class="cert-content">
+          <div class="cert-title">G1 Issue Paper — Certification Basis</div>
+          <div class="cert-detail">Formally establish applicable 14 CFR Part 25 amendment level. Identify special conditions, equivalent safety findings, exemptions. Target: Q1 2027.</div>
+        </div>
+      </div>
+
+      <div class="cert-step">
+        <div class="cert-num">03</div>
+        <div class="cert-content">
+          <div class="cert-title">Certification Plan (CP) & MPS</div>
+          <div class="cert-detail">Compliance method per regulation (test, analysis, inspection, similarity). Master Project Schedule with FAA milestones. Issue Papers for novel features (FBW, composite structure).</div>
+        </div>
+      </div>
+
+      <div class="cert-step">
+        <div class="cert-num">04</div>
+        <div class="cert-content">
+          <div class="cert-title">Avionics: DO-178C / DO-254 Plans</div>
+          <div class="cert-detail">Software Development Plans for all DAL-A through DAL-D software (FCMC, FMS, TCAS, ELT). Hardware Design Assurance Plans for flight computers and electrical systems. FAA DER software approval.</div>
+        </div>
+      </div>
+
+      <div class="cert-step">
+        <div class="cert-num">05</div>
+        <div class="cert-content">
+          <div class="cert-title">Ground Tests & Structural Qualification</div>
+          <div class="cert-detail">Static load tests (ultimate load, limit load). Fatigue & damage tolerance per Part 25.571. Ground Vibration Test (GVT). Systems integration tests. Fire resistance. Bird strike. Ditching.</div>
+        </div>
+      </div>
+
+      <div class="cert-step">
+        <div class="cert-num">06</div>
+        <div class="cert-content">
+          <div class="cert-title">Flight Test Authorization (FTA)</div>
+          <div class="cert-detail">FAA approval for Experimental Airworthiness Certificate. Begin flight test program. Dedicated FAA Flight Test Engineer assigned. 3-aircraft fleet recommended.</div>
+        </div>
+      </div>
+
+      <div class="cert-step">
+        <div class="cert-num">07</div>
+        <div class="cert-content">
+          <div class="cert-title">Certification Flight Test Program</div>
+          <div class="cert-detail">Full Part 25 compliance flight tests: performance (§25.101–115), stability & control, stall, high-altitude, cold soak, hot & high, systems, emergency, minimum control speeds, flutter, autopilot.</div>
+        </div>
+      </div>
+
+      <div class="cert-step">
+        <div class="cert-num">08</div>
+        <div class="cert-content">
+          <div class="cert-title">Type Certificate Awarded</div>
+          <div class="cert-detail">All compliance findings closed. Compliance Checklist complete. Production Approval (PC/PAH). Airworthiness Directive surveillance baseline. Target: 2030. EASA BASA validation parallel.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title mb16">Key Regulatory References</div>
+      <div class="card mb16">
+        <div class="card-label">14 CFR Part 25 — Key Subparts</div>
+        <table class="spec-table">
+          <tr><td>Subpart B · Flight</td><td>Performance, climb, cruise, stall, control speeds</td></tr>
+          <tr><td>Subpart C · Structure</td><td>Loads, fatigue, damage tolerance, flutter</td></tr>
+          <tr><td>Subpart D · Design & Const.</td><td>Materials, fasteners, bird strike, ditching</td></tr>
+          <tr><td>Subpart E · Powerplant</td><td>Engine installation, fire protection, fuel system</td></tr>
+          <tr><td>Subpart F · Equipment</td><td>Instruments, avionics, lighting, ELT</td></tr>
+          <tr><td>Subpart G · OPS Limitations</td><td>Flight manual, placard, marking requirements</td></tr>
+          <tr><td>Appendix H</td><td>Instructions for Continued Airworthiness</td></tr>
+        </table>
+      </div>
+
+      <div class="card mb16">
+        <div class="card-label">DO-178C Software Assurance Levels</div>
+        <table class="spec-table">
+          <tr><td>DAL-A (Catastrophic)</td><td>FCMC, Primary FCCs — highest rigor</td></tr>
+          <tr><td>DAL-B (Hazardous)</td><td>FMS, TCAS, alternate FCC</td></tr>
+          <tr><td>DAL-C (Major)</td><td>Weather radar, nav display, fuel MGMT</td></tr>
+          <tr><td>DAL-D (Minor)</td><td>Cabin systems, lighting, infotainment</td></tr>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-label">In-House DER Capability</div>
+        <div class="risk-item">
+          <div class="risk-level risk-low">ASSET</div>
+          <div class="risk-desc">
+            <div class="risk-title">FAA DER — Structures (In-House)</div>
+            <div class="risk-mitigation">Having a DER in-house for structures dramatically accelerates structural data approval cycles and reduces external consulting cost. Authority to approve structural test plans, analyses, and compliance findings directly with FAA.</div>
+          </div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-level risk-med">NEEDED</div>
+          <div class="risk-desc">
+            <div class="risk-title">DER — Systems / Avionics (To Hire)</div>
+            <div class="risk-mitigation">Target hiring or contracting a DER for Avionics (DO-178C) and Flight Controls by Q1 2027. Critical for FBW and FCMC software compliance approval speed.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════ FINANCE & LEGAL ════ -->
+<div id="tab-finance" class="tab-panel">
+  <div class="section-title mb16">Financial Architecture — YELINHAWORLD</div>
+
+  <div class="grid-4 mb24">
+    <div class="card green">
+      <div class="card-label">Secured</div>
+      <div class="metric-big">
+        <div class="metric-big-value" style="color:var(--green);font-size:28px">$100K</div>
+        <div class="metric-big-label">Pre-Seed SAFE</div>
+      </div>
+      <p style="font-size:10px;text-align:center;margin-top:6px">Venture Capital · SAFE Note · Oct 2026</p>
+    </div>
+    <div class="card gold">
+      <div class="card-label">Series A Target</div>
+      <div class="metric-big">
+        <div class="metric-big-value" style="color:var(--gold);font-size:28px">$300M</div>
+        <div class="metric-big-label">Series A Round</div>
+      </div>
+      <p style="font-size:10px;text-align:center;margin-top:6px">Target: Q4 2026 – Q1 2027</p>
+    </div>
+    <div class="card">
+      <div class="card-label">Series B Target</div>
+      <div class="metric-big">
+     
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=DM+Sans:wght@300;400;500&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --navy:#040e1f;--blue1:#0a1f3f;--blue2:#0d2d5e;--accent:#00c8ff;--accent2:#0074d9;
+    --gold:#f0a500;--success:#00d68f;--warn:#ffb300;--danger:#ff4757;
+    --text:#e8f4fd;--muted:#7da8c9;--border:rgba(0,200,255,0.18);
+    --card:rgba(10,31,63,0.85);--radius:10px;
+  }
+  body{background:var(--navy);color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;min-height:100vh}
+  h1,h2,h3,.mono{font-family:'Orbitron',monospace}
+  .app{display:flex;flex-direction:column;min-height:100vh}
+
+  /* HEADER */
+  .header{background:linear-gradient(135deg,var(--blue1),var(--blue2));border-bottom:1px solid var(--border);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:60px;flex-shrink:0}
+  .logo{display:flex;align-items:center;gap:10px}
+  .logo-icon{width:36px;height:36px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center}
+  .logo-icon svg{width:22px;height:22px;fill:var(--navy)}
+  .logo-text{font-family:'Orbitron';font-size:13px;font-weight:700;letter-spacing:1px;color:var(--accent)}
+  .logo-sub{font-size:10px;color:var(--muted);letter-spacing:2px}
+  .header-stats{display:flex;gap:16px}
+  .hstat{text-align:right}
+  .hstat-val{font-family:'Orbitron';font-size:13px;font-weight:700;color:var(--gold)}
+  .hstat-lbl{font-size:10px;color:var(--muted);letter-spacing:1px}
+  .header-badge{background:rgba(0,200,255,0.12);border:1px solid var(--border);border-radius:6px;padding:4px 10px;font-size:11px;color:var(--accent);font-family:'Orbitron';letter-spacing:1px}
+
+  /* NAV */
+  .nav{background:var(--blue1);border-bottom:1px solid var(--border);display:flex;overflow-x:auto;padding:0 16px;flex-shrink:0}
+  .nav-btn{padding:12px 16px;border:none;background:none;color:var(--muted);font-family:'DM Sans';font-size:12px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;font-weight:500;letter-spacing:.5px}
+  .nav-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+  .nav-btn:hover:not(.active){color:var(--text)}
+
+  /* BODY */
+  .body{flex:1;overflow-y:auto;padding:20px}
+
+  /* SCREEN */
+  .screen{display:none}
+  .screen.active{display:block}
+
+  /* CARDS */
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;backdrop-filter:blur(4px)}
+  .card-title{font-family:'Orbitron';font-size:11px;letter-spacing:1px;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .card-title::before{content:'';display:block;width:3px;height:14px;background:var(--accent);border-radius:2px}
+
+  /* GRID */
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+
+  /* KPI */
+  .kpi{text-align:center;padding:14px 10px}
+  .kpi-val{font-family:'Orbitron';font-size:18px;font-weight:700;color:var(--gold)}
+  .kpi-lbl{font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:.5px}
+  .kpi-delta{font-size:10px;color:var(--success);margin-top:3px}
+
+  /* TABLE */
+  .tbl{width:100%;border-collapse:collapse;font-size:12px}
+  .tbl th{color:var(--muted);font-weight:500;padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);font-family:'Orbitron';font-size:10px;letter-spacing:.5px}
+  .tbl td{padding:9px 10px;border-bottom:1px solid rgba(0,200,255,0.07);vertical-align:middle}
+  .tbl tr:hover td{background:rgba(0,200,255,0.04)}
+
+  /* BADGES */
+  .badge{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:500;letter-spacing:.3px}
+  .b-green{background:rgba(0,214,143,0.15);color:var(--success);border:1px solid rgba(0,214,143,0.3)}
+  .b-blue{background:rgba(0,200,255,0.12);color:var(--accent);border:1px solid var(--border)}
+  .b-gold{background:rgba(240,165,0,0.15);color:var(--gold);border:1px solid rgba(240,165,0,0.3)}
+  .b-warn{background:rgba(255,179,0,0.15);color:var(--warn);border:1px solid rgba(255,179,0,0.3)}
+  .b-red{background:rgba(255,71,87,0.15);color:var(--danger);border:1px solid rgba(255,71,87,0.3)}
+  .b-gray{background:rgba(125,168,201,0.1);color:var(--muted);border:1px solid rgba(125,168,201,0.2)}
+
+  /* PROGRESS */
+  .prog-bar{height:6px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;margin-top:6px}
+  .prog-fill{height:100%;border-radius:3px;transition:width .6s}
+
+  /* BUTTONS */
+  .btn{padding:8px 14px;border-radius:6px;border:none;cursor:pointer;font-family:'DM Sans';font-size:12px;font-weight:500;transition:all .2s}
+  .btn-primary{background:var(--accent2);color:#fff}
+  .btn-primary:hover{background:#0060b8}
+  .btn-outline{background:none;border:1px solid var(--border);color:var(--accent)}
+  .btn-outline:hover{background:rgba(0,200,255,0.08)}
+  .btn-gold{background:var(--gold);color:var(--navy);font-weight:700}
+  .btn-gold:hover{background:#d4920a}
+  .btn-sm{padding:5px 10px;font-size:11px}
+
+  /* FORM */
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+  .form-group{display:flex;flex-direction:column;gap:4px}
+  .form-label{font-size:11px;color:var(--muted);letter-spacing:.5px}
+  .form-input{background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:8px 10px;font-family:'DM Sans';font-size:12px}
+  .form-input:focus{outline:none;border-color:var(--accent)}
+  .form-select{background:rgba(10,31,63,0.9);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:8px 10px;font-family:'DM Sans';font-size:12px}
+  .form-select:focus{outline:none;border-color:var(--accent)}
+
+  /* DIVIDER */
+  .divider{border:none;border-top:1px solid var(--border);margin:12px 0}
+
+  /* TIMELINE */
+  .timeline{position:relative;padding-left:20px}
+  .timeline::before{content:'';position:absolute;left:6px;top:0;bottom:0;width:1px;background:var(--border)}
+  .tl-item{position:relative;padding-bottom:16px}
+  .tl-dot{position:absolute;left:-17px;top:3px;width:10px;height:10px;border-radius:50%;border:2px solid var(--accent);background:var(--navy)}
+  .tl-dot.done{background:var(--success);border-color:var(--success)}
+  .tl-dot.active{background:var(--accent);border-color:var(--accent);box-shadow:0 0 8px var(--accent)}
+  .tl-date{font-size:10px;color:var(--muted);font-family:'Orbitron';letter-spacing:.5px}
+  .tl-title{font-size:13px;font-weight:500;color:var(--text);margin-top:2px}
+  .tl-desc{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.5}
+
+  /* MODAL */
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(4,14,31,0.85);z-index:100;align-items:center;justify-content:center}
+  .modal-overlay.open{display:flex}
+  .modal{background:var(--blue1);border:1px solid var(--border);border-radius:12px;padding:20px;width:560px;max-width:95vw;max-height:85vh;overflow-y:auto}
+  .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+  .modal-title{font-family:'Orbitron';font-size:12px;color:var(--accent);letter-spacing:1px}
+  .modal-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:18px}
+  .modal-close:hover{color:var(--text)}
+
+  /* SCORE METER */
+  .score-ring{display:flex;flex-direction:column;align-items:center;gap:4px}
+  .score-val{font-family:'Orbitron';font-size:22px;font-weight:700}
+  .score-lbl{font-size:10px;color:var(--muted);letter-spacing:.5px;text-align:center}
+
+  /* ALERT */
+  .alert{border-radius:8px;padding:10px 12px;margin-bottom:10px;display:flex;gap:10px;align-items:flex-start;font-size:12px}
+  .alert-warn{background:rgba(255,179,0,0.1);border:1px solid rgba(255,179,0,0.25);color:var(--warn)}
+  .alert-info{background:rgba(0,200,255,0.08);border:1px solid var(--border);color:var(--muted)}
+
+  /* NEGOTIATION METER */
+  .neg-slider{width:100%;height:8px;accent-color:var(--accent);cursor:pointer}
+  .neg-display{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:4px}
+
+  .sec-title{font-family:'Orbitron';font-size:12px;color:var(--text);letter-spacing:1px;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+  .row-flex{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+
+  .chip{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;background:rgba(0,200,255,0.08);border:1px solid var(--border);border-radius:20px;font-size:11px;color:var(--muted)}
+
+  .notification{position:fixed;bottom:20px;right:20px;background:var(--success);color:#000;padding:10px 16px;border-radius:8px;font-size:12px;font-weight:600;z-index:200;transform:translateY(60px);transition:transform .3s;pointer-events:none}
+  .notification.show{transform:translateY(0)}
+
+  @media(max-width:540px){.g4{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr}.form-row{grid-template-columns:1fr}.header-stats{display:none}}
+</style>
+
+<div class="app">
+  <!-- HEADER -->
+  <div class="header">
+    <div class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 00-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+      </div>
+      <div>
+        <div class="logo-text">YELINHAWORLD</div>
+        <div class="logo-sub">YELINHA1000 · SUPPLY CHAIN PORTAL</div>
+      </div>
+    </div>
+    <div class="header-stats">
+      <div class="hstat"><div class="hstat-val">$3.5B</div><div class="hstat-lbl">SC BUDGET / 50 A/C</div></div>
+      <div class="hstat"><div class="hstat-val">2028</div><div class="hstat-lbl">FIRST FLIGHT</div></div>
+      <div class="hstat"><div class="hstat-val">2030</div><div class="hstat-lbl">FIRST DELIVERY</div></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a href="yelinhaworld_command_center.html" style="text-decoration:none">
+        <button style="
+          display:flex;align-items:center;gap:8px;
+          padding:8px 16px;
+          background:none;
+          border:1px solid rgba(0,200,255,0.4);
+          border-radius:6px;
+          font-family:'Orbitron',monospace;
+          font-size:9px;font-weight:700;
+          letter-spacing:1.5px;color:#00c8ff;
+          cursor:pointer;
+
+          transition:all 0.2s;
+          text-transform:uppercase;
+        "
+        onmouseover="this.style.background='rgba(0,200,255,0.1)';this.style.boxShadow='0 0 16px rgba(0,200,255,0.3)'"
+        onmouseout="this.style.background='none';this.style.boxShadow='none'"
+        >
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="#00c8ff"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+          ← Command Center
+        </button>
+      </a>
+      <div class="header-badge">TEXAS HQ</div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <button class="nav-btn active" onclick="showScreen('dashboard')">Dashboard</button>
+    <button class="nav-btn" onclick="showScreen('suppliers')">T-1 Suppliers</button>
+    <button class="nav-btn" onclick="showScreen('components')">Components & Pricing</button>
+    <button class="nav-btn" onclick="showScreen('contracts')">Contract Workflow</button>
+    <button class="nav-btn" onclick="showScreen('negotiation')">Price Negotiation</button>
+    <button class="nav-btn" onclick="showScreen('budget')">Budget Tracker</button>
+    <button class="nav-btn" onclick="showScreen('timeline')">Program Timeline</button>
+  </nav>
+
+  <div class="body">
+
+    <!-- DASHBOARD -->
+    <div id="screen-dashboard" class="screen active">
+      <div class="sec-title">Program Overview — Yelinha1000 Supply Chain Command Center</div>
+      <div class="g4" style="margin-bottom:14px">
+        <div class="card kpi"><div class="kpi-val">47</div><div class="kpi-lbl">T-1 SUPPLIERS</div><div class="kpi-delta">↑ 12 qualified</div></div>
+        <div class="card kpi"><div class="kpi-val">$70M</div><div class="kpi-lbl">UNIT COST TARGET</div><div class="kpi-delta">per aircraft</div></div>
+        <div class="card kpi"><div class="kpi-val">83</div><div class="kpi-lbl">COMPONENTS</div><div class="kpi-delta">tracked categories</div></div>
+        <div class="card kpi"><div class="kpi-val">68%</div><div class="kpi-lbl">CONTRACTS DRAFTED</div><div class="kpi-delta">↑ 8% this month</div></div>
+      </div>
+      <div class="g2" style="margin-bottom:14px">
+        <div class="card">
+          <div class="card-title">Budget Allocation by System</div>
+          <div id="budgetChart" style="padding:4px 0"></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Supplier Qualification Status</div>
+          <div id="supplierStatus" style="padding:4px 0"></div>
+        </div>
+      </div>
+      <div class="g2">
+        <div class="card">
+          <div class="card-title">Recent Contract Activity</div>
+          <table class="tbl">
+            <tr><th>Supplier</th><th>Component</th><th>Value</th><th>Status</th></tr>
+            <tr><td>Spirit AeroSystems</td><td>Fuselage Sections</td><td>$420M</td><td><span class="badge b-gold">Negotiating</span></td></tr>
+            <tr><td>Safran</td><td>Landing Gear</td><td>$180M</td><td><span class="badge b-green">Signed</span></td></tr>
+            <tr><td>Honeywell</td><td>Avionics Suite</td><td>$210M</td><td><span class="badge b-blue">Under Review</span></td></tr>
+            <tr><td>Collins Aerospace</td><td>Flight Controls</td><td>$165M</td><td><span class="badge b-warn">Pending</span></td></tr>
+            <tr><td>GKN Aerospace</td><td>Wing Panels</td><td>$380M</td><td><span class="badge b-gold">Negotiating</span></td></tr>
+
+          </table>
+        </div>
+        <div class="card">
+          <div class="card-title">Key Milestones</div>
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-dot done"></div><div class="tl-date">Q2 2026</div><div class="tl-title">Company Formation & HQ Setup</div><div class="tl-desc">Texas incorporation, FAA liaison established</div></div>
+            <div class="tl-item"><div class="tl-dot active"></div><div class="tl-date">OCT 2026</div><div class="tl-title">Official Program Launch</div><div class="tl-desc">Investor event, T-1 RFP release, design freeze kickoff</div></div>
+            <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Q1 2027</div><div class="tl-title">T-1 Contract Signings</div><div class="tl-desc">All major structural & propulsion contracts finalized</div></div>
+            <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">Q3 2027</div><div class="tl-title">PDR — Preliminary Design Review</div><div class="tl-desc">FAA DER sign-off on structural concepts</div></div>
+            <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">2028</div><div class="tl-title">First Flight — Yelinha1000</div><div class="tl-desc">66.8m / 2× RR Trent XWB, KHOU test base</div></div>
+            <div class="tl-item"><div class="tl-dot"></div><div class="tl-date">2030</div><div class="tl-title">First Customer Delivery</div><div class="tl-desc">FAA TC obtained, entry into service</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPPLIERS -->
+    <div id="screen-suppliers" class="screen">
+      <div class="sec-title">T-1 Tier-1 Supplier Registry — Yelinha1000</div>
+      <div class="row-flex" style="margin-bottom:14px">
+        <input class="form-input" id="supplierSearch" placeholder="Search supplier or component..." style="width:240px" oninput="filterSuppliers()">
+        <select class="form-select" id="catFilter" onchange="filterSuppliers()">
+          <option value="">All categories</option>
+          <option>Structures</option>
+          <option>Propulsion</option>
+          <option>Avionics</option>
+          <option>Flight Controls</option>
+          <option>Systems</option>
+          <option>Interior</option>
+          <option>Landing Gear</option>
+          <option>Safety</option>
+        </select>
+        <button class="btn btn-primary" onclick="openModal('addSupplier')">+ Add Supplier</button>
+      </div>
+      <div class="card">
+        <table class="tbl" id="supplierTable">
+          <tr><th>Supplier</th><th>Category</th><th>Components Supplied</th><th>Country</th><th>Contract Value (50 A/C)</th><th>Cert</th><th>Status</th><th></th></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- COMPONENTS & PRICING -->
+    <div id="screen-components" class="screen">
+      <div class="sec-title">Components, Sections & Price Reference — Per Aircraft Unit</div>
+      <div class="alert alert-info">All prices reflect negotiated target unit cost for 50-aircraft production run. Actual costs subject to final contract negotiation and escalation clauses.</div>
+      <div class="row-flex">
+        <select class="form-select" id="sysFilter" onchange="filterComponents()">
+          <option value="">All systems</option>
+          <option>Structures</option>
+          <option>Propulsion</option>
+          <option>Avionics & Navigation</option>
+          <option>Flight Controls</option>
+          <option>Safety & Emergency</option>
+          <option>Interior & Cabin</option>
+          <option>Utilities & Power</option>
+          <option>Landing Gear</option>
+        </select>
+        <input class="form-input" id="compSearch" placeholder="Search component..." style="width:200px" oninput="filterComponents()">
+      </div>
+      <div class="card" style="margin-top:12px">
+        <table class="tbl" id="compTable">
+          <tr><th>#</th><th>Component / Section</th><th>System</th><th>Qty/A/C</th><th>Unit Price (Est.)</th><th>50 A/C Total</th><th>Supplier</th><th>Negotiation Room</th></tr>
+        </table>
+      </div>
+      <div class="card" style="margin-top:12px">
+        <div class="card-title">Total Estimated Cost vs Budget</div>
+        <div id="costSummary"></div>
+      </div>
+    </div>
+
+    <!-- CONTRACT WORKFLOW -->
+    <div id="screen-contracts" class="screen">
+      <div class="sec-title">Contract Engagement Workflow — How YELINHAWORLD Contracts T-1 Suppliers</div>
+      <div class="g2" style="margin-bottom:14px">
+        <div class="card">
+          <div class="card-title">6-Phase Contract Process</div>
+          <div style="padding:4px 0" id="contractPhases"></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Generate New RFP / Contract</div>
+          <div class="form-row">
+            <div class="form-group"><div class="form-label">Supplier Name</div><input class="form-input" id="c_supplier" placeholder="e.g. Spirit AeroSystems"></div>
+            <div class="form-group"><div class="form-label">Component / Section</div><input class="form-input" id="c_comp" placeholder="e.g. Fuselage Section 41"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><div class="form-label">Target Unit Price ($M)</div><input class="form-input" id="c_price" type="number" placeholder="e.g. 8.4"></div>
+            <div class="form-group"><div class="form-label">Quantity (50 A/C run)</div><input class="form-input" id="c_qty" type="number" placeholder="50"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><div class="form-label">Delivery Milestone</div><input class="form-input" id="c_del" placeholder="e.g. Q2 2027"></div>
+            <div class="form-group"><div class="form-label">Contract Type</div>
+              <select class="form-select" id="c_type">
+                <option>Firm Fixed Price (FFP)</option>
+                <option>Cost Plus Fixed Fee (CPFF)</option>
+                <option>Time & Materials (T&M)</option>
+                <option>Indefinite Delivery (IDIQ)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:12px"><div class="form-label">Special Clauses</div>
+            <select class="form-select" id="c_clause">
+              <option>Liquidated Damages + Escrow</option>
+              <option>Price Escalation + Inflation Index</option>
+              <option>IP Ownership + NDA</option>
+              <option>Performance Incentive Fee</option>
+              <option>FAA DER Compliance Clause</option>
+            </select>
+          </div>
+          <button class="btn btn-gold" style="width:100%" onclick="generateContract()">Generate Contract Draft ↗</button>
+        </div>
+      </div>
+      <div class="card" id="contractOutput" style="display:none">
+        <div class="card-title">Generated Contract Summary</div>
+        <div id="contractContent" style="font-size:12px;line-height:1.8;color:var(--text)"></div>
+      </div>
+    </div>
+
+    <!-- NEGOTIATION -->
+    <div id="screen-negotiation" class="screen">
+      <div class="sec-title">Price Negotiation Engine — Interactive Lever Simulator</div>
+      <div class="alert alert-warn">CDO / CFO / Legal sign-off required before sending any counter-offer. Target: achieve 8–14% savings vs. supplier initial quote.</div>
+      <div class="g2">
+        <div class="card">
+          <div class="card-title">Negotiation Levers</div>
+          <div id="negLevers"></div>
+        </div>
+        <div class="card">
+          <div class="card-title">Negotiation Score & Outcome</div>
+          <div id="negResult"></div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:12px">
+        <div class="card-title">YELINHAWORLD Negotiation Tactics</div>
+        <div id="negTactics"></div>
+      </div>
+    </div>
+
+    <!-- BUDGET -->
+    <div id="screen-budget" class="screen">
+      <div class="sec-title">Budget Tracker — $3.5 Billion / 50 Aircraft Supply Chain</div>
+      <div class="g4" style="margin-bottom:14px">
+        <div class="card kpi"><div class="kpi-val">$3,500M</div><div class="kpi-lbl">TOTAL SC BUDGET</div></div>
+        <div class="card kpi"><div class="kpi-val">$70M</div><div class="kpi-lbl">PER AIRCRAFT</div></div>
+        <div class="card kpi"><div class="kpi-val">$2,890M</div><div class="kpi-lbl">COMMITTED</div><div class="kpi-delta" style="color:var(--warn)">82.6% allocated</div></div>
+        <div class="card kpi"><div class="kpi-val">$610M</div><div class="kpi-lbl">CONTINGENCY</div><div class="kpi-delta">17.4% reserve</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Budget Breakdown by System — 50 Aircraft Production Run</div>
+        <div id="budgetBreakdown"></div>
+
+      </div>
+    </div>
+
+    <!-- TIMELINE -->
+    <div id="screen-timeline" class="screen">
+      <div class="sec-title">Program Timeline — Yelinha1000 Development & Certification</div>
+      <div class="card">
+        <div id="gantt"></div>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+</div><!-- /app -->
+
+<!-- MODALS -->
+<div class="modal-overlay" id="modal-addSupplier">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Register New T-1 Supplier</div>
+      <button class="modal-close" onclick="closeModal('addSupplier')">✕</button>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><div class="form-label">Company Name</div><input class="form-input" id="ns_name" placeholder="Supplier name"></div>
+      <div class="form-group"><div class="form-label">Country</div><input class="form-input" id="ns_country" placeholder="Country"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><div class="form-label">Category</div>
+        <select class="form-select" id="ns_cat">
+          <option>Structures</option><option>Propulsion</option><option>Avionics</option>
+          <option>Flight Controls</option><option>Systems</option><option>Interior</option>
+          <option>Landing Gear</option><option>Safety</option>
+        </select>
+      </div>
+      <div class="form-group"><div class="form-label">AS9100 Certified</div>
+        <select class="form-select" id="ns_cert"><option>Yes</option><option>In Progress</option><option>No</option></select>
+      </div>
+    </div>
+    <div class="form-group" style="margin-bottom:12px"><div class="form-label">Primary Component</div><input class="form-input" id="ns_comp" placeholder="e.g. Carbon fiber wing skins"></div>
+    <div class="form-row">
+      <div class="form-group"><div class="form-label">Contract Value ($M)</div><input class="form-input" id="ns_val" type="number" placeholder="e.g. 120"></div>
+      <div class="form-group"><div class="form-label">Status</div>
+        <select class="form-select" id="ns_status"><option>Qualified</option><option>Under Evaluation</option><option>RFP Sent</option><option>Contracted</option></select>
+      </div>
+    </div>
+    <button class="btn btn-gold" style="width:100%" onclick="addSupplier()">Add to Registry ↗</button>
+  </div>
+</div>
+
+<div class="notification" id="notification">Action completed successfully</div>
 
 <script>
-  function switchTab(name) {
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    const panel = document.getElementById('tab-' + name);
-    if (panel) panel.classList.add('active');
-    if (event && event.currentTarget) event.currentTarget.classList.add('active');
-  }
-  
-  function openDiscussion() {
-    window.location.href = 'discussion.html';
-  }
-</script>
+const SUPPLIERS_DATA = [
+  {name:'Spirit AeroSystems',cat:'Structures',comp:'Fuselage Sections (41,43,44,46,47)',country:'USA',val:420,cert:'AS9100D',status:'Negotiating'},
+  {name:'GKN Aerospace',cat:'Structures',comp:'Wing Panels & Wing Box Assembly',country:'UK',val:380,cert:'AS9100D',status:'Negotiating'},
+  {name:'Safran Landing Systems',cat:'Landing Gear',comp:'Main & Nose Landing Gear (complete)',country:'France',val:180,cert:'AS9100D',status:'Signed'},
+  {name:'Honeywell Aerospace',cat:'Avionics & Navigation',comp:'Avionics Suite, Weather Radar, TCAS, GPS',country:'USA',val:210,cert:'AS9100D',status:'Under Review'},
+  {name:'Collins Aerospace',cat:'Flight Controls',comp:'FBW Computers, Primary Flight Control Computers ×4, Backup',country:'USA',val:165,cert:'AS9100D',status:'Pending'},
+  {name:'Safran Nacelles',cat:'Propulsion',comp:'Engine Nacelles & Pylons (×2 RR Trent XWB)',country:'France',val:140,cert:'AS9100D',status:'RFP Sent'},
+  {name:'Liebherr Aerospace',cat:'Systems',comp:'Landing Gear Actuation, Air Management, ECS',country:'Germany',val:95,cert:'AS9100D',status:'Qualified'},
+  {name:'Moog Inc.',cat:'Flight Controls',comp:'Fly-By-Wire Actuators, Flight Control Surfaces',country:'USA',val:88,cert:'AS9100D',status:'Under Evaluation'},
+  {name:'Elbit Systems',cat:'Avionics & Navigation',comp:'Navigation Systems, ELT ×2, Collision Avoidance ×2',country:'Israel',val:72,cert:'AS9100D',status:'RFP Sent'},
+  {name:'Hutchinson Aerospace',cat:'Systems',comp:'Fuel System, Outflow Valve, RAM Air Turbine',country:'France',val:65,cert:'AS9100D',status:'Qualified'},
+  {name:'Diehl Aviation',cat:'Interior',comp:'Cabin Interior, Galleys, Overhead Bins, Cabin Systems',country:'Germany',val:120,cert:'AS9100D',status:'Negotiating'},
+  {name:'Zodiac Aerospace',cat:'Interior',comp:'Seats, IFE, Passenger Service Units',country:'France',val:85,cert:'AS9100D',status:'RFP Sent'},
+  {name:'Safran Electrical',cat:'Utilities & Power',comp:'Electrical Power Centers ×6, Wiring Harnesses',country:'France',val:78,cert:'AS9100D',status:'Qualified'},
+  {name:'UTC Aerospace',cat:'Safety',comp:'Fire Extinguishing Bottles ×2, Fire Detection',country:'USA',val:35,cert:'AS9100D',status:'Signed'},
+  {name:'L3Harris Technologies',cat:'Safety',comp:'Flight Data Recorders ×2, CVR, ELT',country:'USA',val:28,cert:'AS9100D',status:'Signed'},
+  {name:'Stelia Aerospace',cat:'Structures',comp:'Empennage (H-Stab, V-Stab), Tail Cone',country:'France',val:160,cert:'AS9100D',status:'Negotiating'},
+  {name:'Ducommun',cat:'Structures',comp:'Horizontal Stabilizer Panels',country:'USA',val:55,cert:'AS9100D',status:'Under Evaluation'},
+  {name:'Cobham Aviation',cat:'Systems',comp:'Ku-Band Antenna, Satellite Comms',country:'UK',val:42,cert:'AS9100D',status:'RFP Sent'},
+  {name:'Safran Power Units',cat:'Utilities & Power',comp:'GPU Interface, APU Systems',country:'France',val:48,cert:'AS9100D',status:'Qualified'},
+  {name:'Zodiac Water Systems',cat:'Systems',comp:'Water Tank 100gal, Gray Water Mast, Waste Tank 100gal',country:'France',val:18,cert:'AS9100D',status:'Signed'},
+  {name:'UTC Fire & Security',cat:'Safety',comp:'Emergency Evacuation Systems, Slides',country:'USA',val:32,cert:'AS9100D',status:'Qualified'},
+  {name:'Aerolia',cat:'Structures',comp:'Navigation Lights, Aircraft Lights Assembly',country:'France',val:12,cert:'AS9100D',status:'Signed'},
+  {name:'Heat Control Inc.',cat:'Systems',comp:'De-icing & Anti-icing Systems (wing+nacelle)',country:'USA',val:55,cert:'AS9100D',status:'Under Evaluation'},
+  {name:'Parker Hannifin',cat:'Systems',comp:'Hydraulic Systems, Outlet Tubes, Pneumatics',country:'USA',val:82,cert:'AS9100D',status:'Negotiating'},
+  {name:'Thales Group',cat:'Avionics & Navigation',comp:'Air Traffic Surveillance ×2, FMS, IRS',country:'France',val:98,cert:'AS9100D',status:'Under Review'},
+];
 
-</body>
-</html>
+const COMPONENTS_DATA = [
+  {name:'Fuselage (complete assembly)',sys:'Structures',qty:1,unit:8.4,sup:'Spirit AeroSystems',room:'Medium'},
+  {name:'Wing Box & Wing Panels',sys:'Structures',qty:2,unit:3.8,sup:'GKN Aerospace',room:'High'},
+  {name:'High-Aspect-Ratio Wings w/ Curved Wingtips',sys:'Structures',qty:1,unit:2.2,sup:'GKN Aerospace',room:'Medium'},
+  {name:'Empennage (H-Stab + V-Stab + Tail)',sys:'Structures',qty:1,unit:3.2,sup:'Stelia Aerospace',room:'Medium'},
+  {name:'Horizontal Stabilizer Panels',sys:'Structures',qty:2,unit:0.55,sup:'Ducommun',room:'Low'},
+  {name:'Engine Nacelles & Pylons',sys:'Propulsion',qty:2,unit:1.4,sup:'Safran Nacelles',room:'High'},
+  {name:'Rolls-Royce Trent XWB (engine)',sys:'Propulsion',qty:2,unit:16.0,sup:'Rolls-Royce (direct)',room:'Low'},
+  {name:'Main Landing Gear (complete)',sys:'Landing Gear',qty:2,unit:1.8,sup:'Safran Landing Systems',room:'Medium'},
+  {name:'Nose Landing Gear',sys:'Landing Gear',qty:1,unit:0.6,sup:'Safran Landing Systems',room:'Medium'},
+  {name:'Fly-By-Wire System',sys:'Flight Controls',qty:1,unit:1.2,sup:'Collins Aerospace',room:'Medium'},
+  {name:'Primary Flight Control Computers ×4',sys:'Flight Controls',qty:4,unit:0.28,sup:'Collins Aerospace',room:'Low'},
+  {name:'Backup/Alternate Flight Computers',sys:'Flight Controls',qty:2,unit:0.18,sup:'Collins Aerospace',room:'Low'},
+  {name:'FBW Actuators (full set)',sys:'Flight Controls',qty:1,unit:0.88,sup:'Moog Inc.',room:'Medium'},
+  {name:'Avionics Suite (full)',sys:'Avionics & Navigation',qty:1,unit:2.1,sup:'Honeywell',room:'High'},
+  {name:'Weather Radar Antenna',sys:'Avionics & Navigation',qty:1,unit:0.32,sup:'Honeywell',room:'Low'},
+  {name:'GPS System',sys:'Avionics & Navigation',qty:1,unit:0.18,sup:'Elbit Systems',room:'Low'},
+  {name:'Air Traffic Surveillance (ADS-B) ×2',sys:'Avionics & Navigation',qty:2,unit:0.25,sup:'Thales Group',room:'Low'},
+  {name:'Collision Avoidance (TCAS) ×2',sys:'Avionics & Navigation',qty:2,unit:0.22,sup:'Elbit Systems',room:'Low'},
+  {name:'Ku-Band Satcom Antenna',sys:'Avionics & Navigation',qty:1,unit:0.42,sup:'Cobham Aviation',room:'Medium'},
+  {name:'Navigation Lights',sys:'Avionics & Navigation',qty:1,unit:0.06,sup:'Aerolia',room:'Low'},
+  {name:'Aircraft Lighting (full)',sys:'Avionics & Navigation',qty:1,unit:0.08,sup:'Aerolia',room:'Low'},
+  {name:'Fire Extinguishing Bottles ×2',sys:'Safety & Emergency',qty:2,unit:0.12,sup:'UTC Aerospace',room:'Low'},
+  {name:'Flight Data Recorder ×2',sys:'Safety & Emergency',qty:2,unit:0.14,sup:'L3Harris',room:'Low'},
+  {name:'Emergency Locator Transmitter ×2',sys:'Safety & Emergency',qty:2,unit:0.09,sup:'Elbit Systems',room:'Low'},
+  {name:'RAM Air Turbine (RAT)',sys:'Safety & Emergency',qty:1,unit:0.22,sup:'Hutchinson',room:'Medium'},
+  {name:'Emergency Systems (slides, O2, etc.)',sys:'Safety & Emergency',qty:1,unit:0.32,sup:'UTC Fire & Security',room:'Low'},
+  {name:'Electrical Power Centers ×6',sys:'Utilities & Power',qty:6,unit:0.24,sup:'Safran Electrical',room:'Medium'},
+  {name:'GPU Interface System',sys:'Utilities & Power',qty:1,unit:0.18,sup:'Safran Power Units',room:'Low'},
+  {name:'De-icing & Anti-icing Systems',sys:'Utilities & Power',qty:1,unit:0.55,sup:'Heat Control Inc.',room:'High'},
+  {name:'Hydraulic System (full)',sys:'Utilities & Power',qty:1,unit:0.82,sup:'Parker Hannifin',room:'Medium'},
+  {name:'Outlet Tubes & Outflow Valve',sys:'Utilities & Power',qty:1,unit:0.14,sup:'Hutchinson/Parker',room:'Low'},
+  {name:'Water Tank 100 gallon',sys:'Utilities & Power',qty:1,unit:0.06,sup:'Zodiac Water',room:'Low'},
+  {name:'Waste Tank 100 gallon',sys:'Utilities & Power',qty:1,unit:0.06,sup:'Zodiac Water',room:'Low'},
+  {name:'Gray Water Drain Mast',sys:'Utilities & Power',qty:1,unit:0.02,sup:'Zodiac Water',room:'Low'},
+  {name:'Water Mixer',sys:'Utilities & Power',qty:1,unit:0.01,sup:'Zodiac Water',room:'Low'},
+  {name:'Cabin Interior Package',sys:'Interior & Cabin',qty:1,unit:1.20,sup:'Diehl Aviation',room:'High'},
+  {name:'Galley Systems (full set)',sys:'Interior & Cabin',qty:1,unit:0.42,sup:'Diehl Aviation',room:'High'},
+  {name:'Passenger Seats',sys:'Interior & Cabin',qty:1,unit:0.65,sup:'Zodiac Aerospace',room:'High'},
+  {name:'Cargo Space Systems',sys:'Interior & Cabin',qty:1,unit:0.28,sup:'Diehl Aviation',room:'Medium'},
+  {name:'Air Traffic Ctrl Navigation Sys.',sys:'Avionics & Navigation',qty:1,unit:0.98,sup:'Thales Group',room:'Medium'},
+];
+
+const BUDGET_DATA = [
+  {sys:'Propulsion',alloc:980,pct:28},
+  {sys:'Structures',alloc:755,pct:21.6},
+  {sys:'Avionics & Navigation',alloc:490,pct:14},
+  {sys:'Flight Controls',alloc:280,pct:8},
+  {sys:'Interior & Cabin',alloc:315,pct:9},
+  {sys:'Landing Gear',alloc:210,pct:6},
+  {sys:'Utilities & Power',alloc:175,pct:5},
+  {sys:'Safety & Emergency',alloc:105,pct:3},
+  {sys:'Contingency Reserve',alloc:190,pct:5.4},
+];
+
+const BAR_COLORS=['#00c8ff','#0074d9','#00d68f','#f0a500','#a55df5','#ff6b9d','#ffb300','#ff4757','#7da8c9'];
+
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('screen-'+id).classList.add('active');
+  event.target.classList.add('active');
+  if(id==='suppliers')renderSuppliers(SUPPLIERS_DATA);
+  if(id==='components')renderComponents(COMPONENTS_DATA);
+  if(id==='budget')renderBudget();
+  if(id==='timeline')renderGantt();
+  if(id==='negotiation')renderNegotiation();
+  if(id==='contracts')renderContractPhases();
+}
+
+function openModal(id){document.getElementById('modal-'+id).classList.add('open')}
+function closeModal(id){document.getElementById('modal-'+id).classList.remove('open')}
+function notify(msg){const n=document.getElementById('notification');n.textContent=msg;n.classList.add('show');setTimeout(()=>n.classList.remove('show'),2500)}
+
+function statusBadge(s){
+  const map={'Signed':'b-green','Qualified':'b-green','Under Review':'b-blue','Negotiating':'b-gold','Pending':'b-warn','RFP Sent':'b-gray','Under Evaluation':'b-warn','Contracted':'b-green'};
+  return `<span class="badge ${map[s]||'b-gray'}">${s}</span>`;
+}
+
+function renderSuppliers(data){
+  const t=document.getElementById('supplierTable');
+  const rows=data.map(s=>`<tr>
+    <td style="font-weight:500">${s.name}</td>
+    <td><span class="chip">${s.cat}</span></td>
+    <td style="font-size:11px;color:var(--muted);max-width:180px">${s.comp}</td>
+    <td>${s.country}</td>
+    <td style="font-weight:500;color:var(--gold)">$${s.val}M</td>
+    <td><span class="badge b-green">${s.cert}</span></td>
+    <td>${statusBadge(s.status)}</td>
+    <td><button class="btn btn-outline btn-sm" onclick="notify('Contract draft initiated for ${s.name}')">Contract ↗</button></td>
+  </tr>`).join('');
+  t.innerHTML=`<tr><th>Supplier</th><th>Category</th><th>Components Supplied</th><th>Country</th><th>Contract Value (50 A/C)</th><th>Cert</th><th>Status</th><th></th></tr>`+rows;
+}
+
+function filterSuppliers(){
+  const q=document.getElementById('supplierSearch').value.toLowerCase();
+  const cat=document.getElementById('catFilter').value;
+  renderSuppliers(SUPPLIERS_DATA.filter(s=>
+    (!q||(s.name+s.comp).toLowerCase().includes(q))&&
+    (!cat||s.cat===cat)
+  ));
+}
+
+function filterComponents(){
+  const q=document.getElementById('compSearch').value.toLowerCase();
+  const sys=document.getElementById('sysFilter').value;
+  renderComponents(COMPONENTS_DATA.filter(c=>
+    (!q||c.name.toLowerCase().includes(q))&&
+    (!sys||c.sys===sys)
+  ));
+}
+
+function renderComponents(data){
+  const roomColor={High:'b-green',Medium:'b-gold',Low:'b-gray'};
+  const rows=data.map((c,i)=>{
+    const total50=(c.unit*c.qty*50).toFixed(2);
+    return`<tr>
+      <td style="color:var(--muted)">${i+1}</td>
+      <td style="font-weight:500">${c.name}</td>
+      <td><span class="chip" style="font-size:10px">${c.sys}</span></td>
+      <td style="text-align:center">${c.qty}</td>
+      <td style="color:var(--gold)">$${c.unit.toFixed(2)}M</td>
+      <td style="color:var(--accent)">$${total50}M</td>
+      <td style="font-size:11px;color:var(--muted)">${c.sup}</td>
+      <td><span class="badge ${roomColor[c.room]}">${c.room}</span></td>
+    </tr>`;
+  }).join('');
+  const total=data.reduce((a,c)=>a+c.unit*c.qty*50,0);
+  document.getElementById('compTable').innerHTML=`<tr><th>#</th><th>Component / Section</th><th>System</th><th>Qty/A/C</th><th>Unit Price (Est.)</th><th>50 A/C Total</th><th>Supplier</th><th>Negotiation Room</th></tr>`+rows;
+  document.getElementById('costSummary').innerHTML=`
+    <div class="g3" style="gap:10px">
+      <div class="card kpi"><div class="kpi-val">$${total.toFixed(0)}M</div><div class="kpi-lbl">FILTERED SUBTOTAL (50 A/C)</div></div>
+      <div class="card kpi"><div class="kpi-val">$3,500M</div><div class="kpi-lbl">TOTAL BUDGET</div></div>
+      <div class="card kpi"><div class="kpi-val" style="color:${(3500-total)>0?'var(--success)':'var(--danger)'}">$${(3500-total).toFixed(0)}M</div><div class="kpi-lbl">REMAINING HEADROOM</div></div>
+    </div>`;
+}
+
+function renderBudget(){
+  const html=BUDGET_DATA.map((b,i)=>`
+    <div style="margin-bottom:12px">
+      <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+        <span style="font-size:12px;font-weight:500">${b.sys}</span>
+        <span style="font-size:12px;color:var(--gold)">$${b.alloc}M <span style="color:var(--muted)">(${b.pct}%)</span></span>
+      </div>
+      <div class="prog-bar"><div class="prog-fill" style="width:${b.pct*3.3}%;background:${BAR_COLORS[i%BAR_COLORS.length]}"></div></div>
+    </div>`).join('');
+  document.getElementById('budgetBreakdown').innerHTML=html;
+}
+
+function renderGantt(){
+  const phases=[
+    {label:'Company Formation & HQ',start:0,dur:2,color:'#0074d9'},
+    {label:'Official Program Launch',start:2,dur:1,color:'#00c8ff'},
+    {label:'T-1 RFP & Supplier Selection',start:2,dur:4,color:'#f0a500'},
+    {label:'Preliminary Design (PDR)',start:4,dur:6,color:'#a55df5'},
+    {label:'T-1 Contract Negotiations',start:3,dur:5,color:'#00d68f'},
+    {label:'Critical Design Review (CDR)',start:10,dur:3,color:'#ff6b9d'},
+    {label:'Manufacturing Kickoff',start:13,dur:8,color:'#ffb300'},
+    {label:'Systems Integration & Testing',start:18,dur:6,color:'#0074d9'},
+    {label:'First Flight — Yelinha1000',start:24,dur:1,color:'#00c8ff'},
+    {label:'FAA Certification Program',start:24,dur:12,color:'#ff4757'},
+    {label:'First Customer Delivery',start:42,dur:1,color:'#00d68f'},
+  ];
+  const labels=['Q2\'26','Q3\'26','Q4\'26','Q1\'27','Q2\'27','Q3\'27','Q4\'27','Q1\'28','Q2\'28','Q3\'28','Q4\'28','Q1\'29','Q2\'29','Q3\'29','Q4\'29','Q1\'30','Q2\'30','Q3\'30','Q4\'30'];
+  const total=43;
+  const html=`<div style="overflow-x:auto">
+    <div style="min-width:600px">
+      <div style="display:grid;grid-template-columns:180px 1fr;margin-bottom:6px">
+        <div></div>
+        <div style="display:flex;gap:0">${labels.slice(0,18).map(l=>`<div style="flex:1;font-size:9px;color:var(--muted);text-align:center;font-family:'Orbitron'">${l}</div>`).join('')}</div>
+      </div>
+      ${phases.map(p=>`
+        <div style="display:grid;grid-template-columns:180px 1fr;margin-bottom:5px;align-items:center">
+          <div style="font-size:11px;color:var(--muted);padding-right:8px;line-height:1.3">${p.label}</div>
+          <div style="position:relative;height:18px">
+            <div style="position:absolute;left:${(p.start/total)*100}%;width:${(p.dur/total)*100}%;height:100%;background:${p.color};border-radius:3px;opacity:0.85;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:600;color:var(--navy);overflow:hidden;white-space:nowrap;padding:0 4px">${p.dur>2?p.label:''}</div>
+          </div>
+        </div>`).join('')}
+    </div>
+  </div>`;
+  document.getElementById('gantt').innerHTML=html;
+}
+
+function renderContractPhases(){
+  const phases=[
+    {n:1,title:'Market Survey & RFI',desc:'Issue Request for Information to 80+ qualified aerospace suppliers. Assess capability, capacity, financial health, and AS9100 certification status.',dur:'4 weeks'},
+    {n:2,title:'RFP — Request for Proposal',desc:'Issue detailed technical RFP with drawings (CATIA V5/V6), specs, ICD, and SOW. NDA required before receipt. Bid bond of 1% contract value.',dur:'8 weeks'},
+    {n:3,title:'Technical & Commercial Evaluation',desc:'Cross-functional evaluation by CDO, CTO, Lead Structures, Head Avionics. Score: Technical 60% / Price 30% / Risk 10%. Shortlist 2–3 suppliers per category.',dur:'6 weeks'},
+    {n:4,title:'Negotiation & Price Agreement',desc:'CFO + Head Legal lead commercial negotiation. Use should-cost model, volume leverage (50 A/C), and multi-year commitment to drive 8–14% savings vs initial quote.',dur:'4–8 weeks'},
+    {n:5,title:'Contract Drafting & Legal Review',desc:'Head of Legal drafts FFP/CPFF contract. Includes: delivery schedule, liquidated damages ($50K/day delay), quality plan, DDP or EXW Incoterms, IP clauses, FAA compliance.',dur:'3 weeks'},
+    {n:6,title:'Signature & Kickoff',desc:'CEO + Supplier VP co-sign. Program kickoff meeting within 10 days. Supplier appointed a dedicated YELINHAWORLD Program Manager. Monthly SRM reviews initiated.',dur:'1 week'},
+  ];
+  document.getElementById('contractPhases').innerHTML=phases.map(p=>`
+    <div style="display:flex;gap:10px;margin-bottom:12px;align-items:flex-start">
+      <div style="width:26px;height:26px;border-radius:50%;background:var(--accent2);display:flex;align-items:center;justify-content:center;font-family:'Orbitron';font-size:11px;font-weight:700;flex-shrink:0">${p.n}</div>
+      <div>
+        <div style="font-weight:500;font-size:12px;color:var(--text)">${p.title} <span class="badge b-gray" style="margin-left:6px">${p.dur}</span></div>
+        <div style="font-size:11px;color:var(--muted);margin-top:3px;line-height:1.6">${p.desc}</div>
+      </div>
+    </div>`).join('');
+}
+
+const NEG_LEVERS=[
+  {id:'vol',label:'Volume Commitment',min:10,max:50,val:50,unit:' aircraft',effect:0.18},
+  {id:'pay',label:'Advance Payment (%)',min:0,max:30,val:15,unit:'%',effect:0.12},
+  {id:'dur',label:'Contract Duration (yrs)',min:2,max:10,val:7,unit:' yrs',effect:0.10},
+  {id:'sole',label:'Sole-Source Preference',min:0,max:1,val:0,unit:'',effect:0.08},
+  {id:'esc',label:'Escalation Cap (%/yr)',min:1,max:5,val:2,unit:'%',effect:-0.06},
+];
+let negState={vol:50,pay:15,dur:7,sole:0,esc:2};
+
+function renderNegotiation(){
+  document.getElementById('negLevers').innerHTML=NEG_LEVERS.map(l=>`
+    <div style="margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+        <span style="font-size:12px;font-weight:500">${l.label}</span>
+        <span id="lv_${l.id}" style="font-size:12px;color:var(--accent)">${negState[l.id]}${l.unit}</span>
+      </div>
+      <input type="range" class="neg-slider" min="${l.min}" max="${l.max}" value="${negState[l.id]}"
+        oninput="updateLever('${l.id}',this.value,'${l.unit}')" style="width:100%;accent-color:var(--accent)">
+    </div>`).join('')+
+    `<div style="margin-top:8px"><button class="btn btn-gold" style="width:100%" onclick="notify('Negotiation scenario saved — CFO approval requested')">Submit for CFO Review ↗</button></div>`;
+  updateNegResult();
+
+  document.getElementById('negTactics').innerHTML=`
+    <div class="g2" style="gap:10px">
+      ${[
+        {t:'Should-Cost Modeling',d:'Build internal bottom-up cost model for each component. Benchmark supplier quote against your model. Challenge any variance >15%.'},
+        {t:'Competitive Tension',d:'Invite 2–3 suppliers per category. Never reveal you have a preference. Let competition drive pricing down 8–12%.'},
+        {t:'Volume Bundling',d:'Bundle related components (e.g. nacelles + pylons) with one supplier to increase deal size and leverage better unit economics.'},
+        {t:'Multi-Year Commitment',d:'Offer 7–10 year exclusivity in exchange for better pricing, priority capacity, and co-investment in tooling (amortized in unit price).'},
+        {t:'Escalation Control',d:'Cap price escalation at CPI+1% per year. Lock in raw material price for Year 1–2 using forward contracts agreed with supplier.'},
+        {t:'Liquidated Damages',d:'Include $50,000/day delay penalty after 15-day grace period. Creates supplier discipline and protects 2028 first flight date.'},
+      ].map(t=>`<div class="card" style="padding:12px"><div style="font-size:12px;font-weight:500;color:var(--accent);margin-bottom:5px">${t.t}</div><div style="font-size:11px;color:var(--muted);line-height:1.6">${t.d}</div></div>`).join('')}
+    </div>`;
+}
+
+function updateLever(id,val,unit){
+  negState[id]=parseFloat(val);
+  document.getElementById('lv_'+id).textContent=parseFloat(val)+unit;
+  updateNegResult();
+}
+
+function updateNegResult(){
+  const base=70;
+  let savings=0;
+  savings+=((negState.vol/50)*0.18*100);
+  savings+=((negState.pay/30)*0.12*100)*0.4;
+  savings+=((negState.dur/10)*0.10*100)*0.5;
+  savings+=(negState.sole*0.08*100)*0.5;
+  savings-=((5-negState.esc)/4*0.06*100)*0.3;
+  savings=Math.min(Math.max(savings,0),14);
+  const negotiated=(base*(1-savings/100)).toFixed(2);
+  const color=savings>10?'var(--success)':savings>5?'var(--gold)':'var(--danger)';
+  document.getElementById('negResult').innerHTML=`
+    <div style="text-align:center;padding:12px 0">
+      <div style="font-family:'Orbitron';font-size:32px;font-weight:700;color:${color}">${savings.toFixed(1)}%</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:.5px">ESTIMATED SAVINGS VS INITIAL QUOTE</div>
+      <hr class="divider">
+      <div class="g2" style="gap:10px;margin-top:8px">
+        <div class="card kpi"><div class="kpi-val">$70.00M</div><div class="kpi-lbl">SUPPLIER QUOTE/A/C</div></div>
+        <div class="card kpi"><div class="kpi-val" style="color:var(--success)">$${negotiated}M</div><div class="kpi-lbl">NEGOTIATED TARGET</div></div>
+      </div>
+      <div style="margin-top:10px;font-size:11px;color:var(--muted)">
+        ${savings>=10?'<span class="badge b-green">Excellent position — proceed to contract</span>':savings>=5?'<span class="badge b-gold">Acceptable — push on volume lever</span>':'<span class="badge b-red">Weak — increase commitment levers</span>'}
+      </div>
+    </div>`;
+}
+
+function generateContract(){
+  const s=document.getElementById('c_supplier').value||'[SUPPLIER]';
+  const c=document.getElementById('c_comp').value||'[COMPONENT]';
+  const p=document.getElementById('c_price').value||'[PRICE]';
+  const q=document.getElementById('c_qty').value||'50';
+  const del=document.getElementById('c_del').value||'[DELIVERY]';
+  const type=document.getElementById('c_type').value;
+  const clause=document.getElementById('c_clause').value;
+  const total=(parseFloat(p)||0)*parseInt(q||50);
+  document.getElementById('contractOutput').style.display='block';
+  document.getElementById('contractContent').innerHTML=`
+    <div style="background:rgba(0,200,255,0.04);border:1px solid var(--border);border-radius:8px;padding:14px;font-family:'DM Sans';line-height:1.9">
+      <div style="text-align:center;margin-bottom:14px;border-bottom:1px solid var(--border);padding-bottom:10px">
+        <div style="font-family:'Orbitron';font-size:13px;color:var(--accent);letter-spacing:1px">SUPPLY AGREEMENT — YELINHAWORLD LLC</div>
+        <div style="font-size:11px;color:var(--muted)">YELINHA1000 PROGRAM · TEXAS, USA · DRAFT v1.0</div>
+      </div>
+      <div style="font-size:12px">
+        <b style="color:var(--text)">PARTIES:</b><br>
+        Buyer: YELINHAWORLD LLC, Texas, USA (hereafter "Buyer")<br>
+        Seller: ${s} (hereafter "Supplier")<br><br>
+        <b style="color:var(--text)">SUBJECT MATTER:</b> Supply of ${c} for the Yelinha1000 wide-body aircraft program.<br><br>
+        <b style="color:var(--text)">CONTRACT TYPE:</b> ${type}<br>
+        <b style="color:var(--text)">UNIT PRICE:</b> USD $${p}M per aircraft unit<br>
+        <b style="color:var(--text)">QUANTITY:</b> ${q} aircraft (deliverable per agreed delivery schedule)<br>
+        <b style="color:var(--text)">TOTAL CONTRACT VALUE:</b> USD $${isNaN(total)?'TBD':total.toFixed(1)}M<br><br>
+        <b style="color:var(--text)">DELIVERY:</b> First article delivery by ${del}. Final delivery per ABS (Aircraft Build Schedule).<br>
+        <b style="color:var(--text)">INCOTERMS:</b> DDP — Buyer's facility, Dallas/Fort Worth, Texas<br><br>
+        <b style="color:var(--text)">KEY CLAUSES:</b><br>
+        • ${clause}<br>
+        • Liquidated Damages: USD $50,000 per calendar day beyond agreed delivery date (after 15-day grace period)<br>
+        • Quality: Supplier shall maintain AS9100D certification throughout contract term<br>
+        • FAA Compliance: All deliverables shall conform to FAA FAR Part 25 and applicable TSO requirements<br>
+        • First Article Inspection (FAI) required per AS9102 before series production<br>
+        • YELINHAWORLD DER (FAA) retains right of inspection at Supplier facility<br>
+        • Escalation: Price escalation capped at CPI + 1.5% per annum from Year 2<br>
+        • IP: All YELINHAWORLD-furnished designs remain Buyer's IP. Supplier retains manufacturing know-how<br>
+        • Termination for Convenience: 90-day notice; Supplier entitled to costs incurred + 5% fee<br><br>
+        <b style="color:var(--text)">GOVERNANCE:</b> Monthly SRM reviews. Quarterly Business Reviews (QBR). Annual supplier summit hosted by YELINHAWORLD.<br><br>
+        <div style="font-size:10px;color:var(--muted);margin-top:10px;padding-top:8px;border-top:1px solid var(--border)">
+          This is an AI-generated contract summary for internal planning purposes. Final contract to be reviewed and executed by YELINHAWORLD Head of Legal and authorized signatories. Reference: YW-SC-${Math.floor(Math.random()*9000)+1000}
+        </div>
+      </div>
+    </div>`;
+  notify('Contract draft generated — reference YW-SC-'+Math.floor(Math.random()*9000+1000));
+}
+
+function addSupplier(){
+  const s={
+    name:document.getElementById('ns_name').value||'New Supplier',
+    cat:document.getElementById('ns_cat').value,
+    comp:document.getElementById('ns_comp').value||'TBD',
+    country:document.getElementById('ns_country').value||'USA',
+    val:parseInt(document.getElementById('ns_val').value)||0,
+    cert:document.getElementById('ns_cert').value==='Yes'?'AS9100D':'Pending',
+    status:document.getElementById('ns_status').value
+  };
+  SUPPLIERS_DATA.unshift(s);
+  closeModal('addSupplier');
+  notify(s.name+' added to T-1 supplier registry');
+  renderSuppliers(SUPPLIERS_DATA);
+}
+
+function renderDashboardCharts(){
+  const budgetEl=document.getElementById('budgetChart');
+  budgetEl.innerHTML=BUDGET_DATA.map((b,i)=>`
+    <div style="margin-bottom:8px">
+      <div style="display:flex;justify-content:space-between;margin-bottom:2px">
+        <span style="font-size:11px;color:var(--muted)">${b.sys}</span>
+        <span style="font-size:11px;color:var(--gold)">$${b.alloc}M</span>
+      </div>
+      <div class="prog-bar"><div class="prog-fill" style="width:${b.pct*3.3}%;background:${BAR_COLORS[i%BAR_COLORS.length]}"></div></div>
+    </div>`).join('');
+
+  const statCounts={Signed:0,Qualified:0,Negotiating:0,'Under Review':0,'RFP Sent':0,'Under Evaluation':0};
+  SUPPLIERS_DATA.forEach(s=>{if(statCounts[s.status]!==undefined)statCounts[s.status]++;});
+  const statEl=document.getElementById('supplierStatus');
+  statEl.innerHTML=Object.entries(statCounts).filter(([,v])=>v>0).map(([k,v])=>`
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+      ${statusBadge(k)}
+      <div class="prog-bar" style="flex:1;margin-top:0"><div class="prog-fill" style="width:${(v/SUPPLIERS_DATA.length)*100}%;background:var(--accent)"></div></div>
+      <span style="font-size:12px;font-weight:500;color:var(--text);min-width:20px">${v}</span>
+    </div>`).join('');
+}
+
+renderDashboardCharts();
+</script>
+Afficher le texte des messages précédents
